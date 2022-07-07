@@ -1,0 +1,47 @@
+.filter {
+    border: 1px solid black;
+    text-align: center;
+    width: 80vw;
+}
+
+.vbox {
+    border: 3px solid black;
+    width: 70vw;
+    height: 20vw;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    width: 140px;
+}
+
+.hbox {
+    border: 3px solid black;
+    width: 70vw;
+    height: 20vw;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.child {
+    margin: 10vw;
+}
+
+.box {
+    border: 1px solid black;
+    border-radius: 1vw;
+    width: 10vw;
+    height: 4vw;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+input:invalid {
+    background: red;
+}

@@ -1,0 +1,63 @@
+<!-- Whenever you see "extends," think of this implementation as inheriting from the "base.html" template. -->
+{% extends "base.html" %}
+{% block title %}Search Courses{% endblock %}
+{% block head %}
+    <!-- super() refers to the "base.html" implementation of the block; in this case, the "head" block. -->
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+    <script src="{{url_for('static', filename='js/home.js')}}"></script>
+{% endblock %}
+{% block content %}
+<h1>Welcome to the Scheduler 1.0</h1>
+<p>This website will allow you to ensure the best possible schedule.</p>
+<div class="filter">
+    <form>
+        <h2>Filters</h2>
+        <label for="search">Search Course: </label><input type="text" id="search"/><br><br>
+        <div class="hbox">
+            <!-- Every course listed in a college. -->
+            <div class="child">
+                <select id="course" size="10" multiple>
+                {% for course in courses %}
+                    <option value="{{course.abbreviation}}">{{course.full_name}}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <div class="child">
+                <button class="button" type="button">Select Courses >></button><br><br>
+                <button class="button" type="button"><< Cancel Selection</button>
+            </div>
+            <div class="child">
+                <select id="selected" size="10" multiple>
+                {% for course in selected_courses %}
+                    <option value="{{course.abbreviation}}">{{course.full_name}}</option>
+                {% endfor %}
+                </select>
+            </div>
+
+        </div>
+
+        <br><br>
+        <label for="days">Day(s) Available:</label><br><br>
+        <select id="days" size="5" name="days" multiple>
+            <option value="M">Monday</option>
+            <option value="T">Tuesday</option>
+            <option value="W">Wednesday</option>
+            <option value="R">Thursday</option>
+            <option value="F">Friday</option>
+        </select><br><br>
+        <label for="start1" oninput="checkStartEnd(this, document.getElementById('start2'))" >Start Time:</label>
+        <input type="time" id="start1" name="start1" /> to <input type="time" id="start2" name="start2" /><br><br>
+        <label for="end1">End Time:</label>
+        <input type="time" id="end1" name="end1" oninput="checkStartEnd(this, document.getElementById('end2'))" /> to <input type="time" name="end2" id="end2" /><br><br>
+        <label for="end1">Ideal Workload:</label>
+        <input type="number" id="credits1" name="credits1" min='0' max="100" step="0.5" oninput="checkStartEnd(this, document.getElementById('credits2'))" /> to <input type="number" id="credits2" name="credits2" min='0' max="100" step="0.5" /> credits<br><br><br>
+        <button type="button">Clear Filters</button>
+
+        <p>To use more filters, please <a href="login.html">log in</a> or <a href="signup.html">sign up</a> for an account.</p>
+
+    </form>
+</div>
+{% if query %}
+{% endif %}
+{% endblock %}

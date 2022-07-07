@@ -1,0 +1,18 @@
+<!-- JQuery and Jinja 2 are required to implement this template. -->
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+    <title>{% block title %}{% endblock %} - Scheduler</title>
+    {% endblock %}
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+    <div id="footer">
+      {% block footer %}
+      &copy; Copyright 2022 by <a href="http://domain.invalid/">Yours Truly</a>.
+      {% endblock %}
+    </div>
+  </body>
+</html>

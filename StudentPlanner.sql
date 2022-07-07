@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS courses;
+USE courses;
+CREATE TABLE IF NOT EXISTS Course(id int auto_increment not null, title varchar(100) not null, abbreviation varchar(10), category varchar(10), primary key(id));
+CREATE TABLE IF NOT EXISTS Corequisites(id int auto_increment not null, course_id int not null, corequisite_id int not null, alternate_number int, primary key(id), foreign key(course_id) references Course(id), foreign key(corequisite_id) references Course(id));
+CREATE TABLE IF NOT EXISTS Prerequisites(id int auto_increment not null, course_id int not null, prerequisite_id int not null, alternate_number int, primary key(id), foreign key(course_id) references Course(id), foreign key(prerequisite_id) references Course(id));
+CREATE TABLE IF NOT EXISTS Professor(id int auto_increment not null, last_name varchar(40) not null, first_name varchar(20) not null, middle_initial varchar(1), primary key(id));
+CREATE TABLE IF NOT EXISTS Student(id int auto_increment not null, email varchar(254) unique not null, password varchar(60) not null, last_name varchar(40) not null, first_name varchar(20) not null, middle_initial varchar(1), major varchar(50), primary key(id));
+CREATE TABLE IF NOT EXISTS Review(id int auto_increment not null, student_id int, content varchar(1000), rating decimal(5, 4), primary key(id), foreign key(student_id) references Student(id), check (rating between 0 and 5));
+CREATE TABLE IF NOT EXISTS Section(id int auto_increment not null, course_id int not null, student_id int not null, professor_id int not null, grade varchar(2), min_pass_grade varchar(2) not null, completed bool not null, start time not null, end time not null, seats int not null, primary key(id), foreign key(course_id) references Course(id), foreign key(student_id) references Student(id), foreign key(professor_id) references Professor(id));
+CREATE TABLE IF NOT EXISTS Schedule(id int auto_increment, section_id int not null, mondays bool not null, tuesdays bool not null, wednesdays bool not null, thursdays bool not null, fridays bool not null, primary key(id), foreign key(section_id) references Section(id))
+CREATE TABLE IF NOT EXISTS BreakTimes(id int auto_increment, student_id int, day varchar(1), start time not null, end time not null, primary key (id), foreign key (student_id) references Student(id));
