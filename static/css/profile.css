@@ -1,0 +1,17 @@
+.bordered {
+    border: 1px solid black;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+input:invalid {
+    background: red;
+}
+
+table.bordered th, table.bordered td {
+    border: 1px solid black;
+}
+
+.error {
+    color: red;
+}

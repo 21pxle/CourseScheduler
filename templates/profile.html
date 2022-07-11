@@ -1,15 +1,26 @@
 {% extends "base.html" %}
-{% block title %}{{name}}{% endblock %}
+{% block title %}{{user.first_name}}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}" />
+    <script src="{{url_for('static', filename='js/profile.js')}}"></script>
+{% endblock %}
 {% block content %}
 <h1>Profile</h1>
-<p>Hi, {{name}}!</p><br><br>
+<p>Hi, {{user.first_name}}!</p><br><br>
 <h2>Settings</h2>
 <h3>Schedule</h3>
 
 <!-- The table class "borders" -->
+{% if error %}
+    <p class="error"><strong>Error: </strong> {{ error }}</p><br><br>
+{% endif %}
+<form method="post">
 <table class="bordered">
     <tr>
-        <td>Available Times</td>
+        <th colspan="5">Available Times</th>
+    </tr>
+    <tr>
         <td>Monday</td>
         <td>Tuesday</td>
         <td>Wednesday</td>
@@ -17,26 +28,132 @@
         <td>Friday</td>
     </tr>
     <tr>
-        <td>
-            <input type="time" />
-            <button>Remove Interval</button><br><br>
-            <button>Add Interval</button>
+        <!-- The code will check for a python dictionary named "prefs."
+         Indices 1-5 encode the day of the week (1=Monday, 2=Tuesday, ..., 5=Friday).
+         -->
+        <td id="monday">
+            {% if prefs[1]|length %}
+                {% for pref in prefs[1] %}
+                    <div>
+                        <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
+                           value="{{ pref.start }}" id="mondayStart{{ loop.index }}"
+                           name="mondayStart{{ loop.index}}" /> to
+                        <input type="time" id="mondayEnd{{ loop.index }}"
+                               value="{{ pref.end }}" name="mondayEnd{{ loop.index }}" /><br>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div>
+                    <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
+                           value="00:00" id="mondayStart1" name="mondayStart1" /> to
+                    <input type="time" id="mondayEnd1" value="23:59" name="mondayEnd1" /><br>
+                </div>
+            {% endif %}
         </td>
-        <td>
-            <button>Remove Interval</button><br><br>
-            <button>Add Interval</button>
+        <td id="tuesday">
+            {% if prefs[2]|length %}
+                {% for pref in prefs[2] %}
+                    <div>
+                        <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
+                               value="{{ pref.start }}" id="tuesdayStart{{ loop.index }}"
+                               name="tuesdayStart{{ loop.index}}" /> to
+                        <input type="time" id="tuesdayEnd{{ loop.index }}"
+                               value="{{ pref.end }}" name="tuesdayEnd{{ loop.index }}" /><br>
+                    </div>
+                {% endfor %}
+            {% else %}
+            <div>
+                <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
+                       value="00:00" id="tuesdayStart1" name="tuesdayStart1" /> to
+                <input type="time" value="23:59" id="tuesdayEnd1" name="tuesdayEnd1" /><br>
+            </div>
+            {% endif %}
         </td>
-        <td>
-            <button>Remove Interval</button><br><br>
-            <button>Add Interval</button>
+        <td id="wednesday">
+            {% if prefs[3]|length %}
+                {% for pref in prefs[3] %}
+                    <div>
+                        <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
+                               value="{{ pref.start }}" id="wednesdayStart{{ loop.index }}"
+                               name="wednesdayStart{{ loop.index}}" /> to
+                        <input type="time" value="{{ pref.end }}" id="wednesdayEnd{{ loop.index }}"
+                               name="wednesdayEnd{{ loop.index }}" /><br>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div>
+                    <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
+                           value="00:00" id="wednesdayStart1" name="wednesdayStart1" /> to
+                    <input type="time" value="23:59" id="wednesdayEnd1" name="wednesdayEnd1" /><br>
+                </div>
+            {% endif %}
         </td>
-        <td>
-
-            <button>Remove Interval</button><br><br>
-            <button>Add Interval</button>
+        <td id="thursday">
+            {% if prefs[4]|length %}
+                {% for pref in prefs[4] %}
+                    <div>
+                        <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
+                               value="{{ pref.start }}" id="thursdayStart{{ loop.index }}"
+                               name="thursdayStart{{ loop.index}}" /> to
+                        <input type="time" value="{{ pref.end }}" id="thursdayEnd{{ loop.index }}"
+                               name="thursdayEnd{{ loop.index }}" /><br>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div>
+                    <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
+                           value="00:00" id="thursdayStart1" name="thursdayStart1" /> to
+                    <input type="time" id="thursdayEnd1" value="23:59" name="thursdayEnd1" /><br>
+                </div>
+            {% endif %}
+        </td>
+        <td id="friday">
+            {% if prefs[5]|length %}
+                {% for pref in prefs[5] %}
+                    <div>
+                        <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
+                               value="{{ pref.start }}" id="fridayStart{{ loop.index }}"
+                               name="fridayStart{{ loop.index}}" /> to
+                        <input type="time" value="{{ pref.end }}" id="fridayEnd{{ loop.index }}"
+                               name="fridayEnd{{ loop.index }}" /><br>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div>
+                    <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
+                           value="00:00" id="fridayStart1" name="fridayStart1" /> to
+                    <input type="time" id="fridayEnd1" value="23:59" name="fridayEnd1" /><br>
+                </div>
+            {% endif %}
         </td>
     </tr>
-</table>
-<h3>Preferences</h3>
+    <tr>
+        <td>
+            <button type="button" onclick="removeInterval('monday');">Remove Interval</button><br>
+            <button type="button" onclick="addInterval('monday');">Add Interval</button>
+        </td>
+        <td>
+            <button type="button" onclick="removeInterval('tuesday');">Remove Interval</button><br>
+            <button type="button" onclick="addInterval('tuesday');">Add Interval</button>
+        </td>
+        <td>
+            <button type="button" onclick="removeInterval('wednesday');">Remove Interval</button><br>
+            <button type="button" onclick="addInterval('wednesday');">Add Interval</button>
+        </td>
+        <td>
+            <button type="button" onclick="removeInterval('thursday');">Remove Interval</button><br>
+            <button type="button" onclick="addInterval('thursday');">Add Interval</button>
+        </td>
+        <td>
+            <button type="button" onclick="removeInterval('friday');">Remove Interval</button><br>
+            <button type="button" onclick="addInterval('friday');">Add Interval</button>
+        </td>
+    </tr>
+</table><br><br>
+<input type="submit" value="Save Preferences" />
+</form>
+
+<h3>Courses</h3>
+
 
 {% endblock %}

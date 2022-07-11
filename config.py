@@ -15,15 +15,30 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 
-class ProdConfig(Config):
+class InitProdConfig(Config):
     FLASK_ENV = 'production'
     DEBUG = False
     TESTING = False
     SQLALCHEMY_DATABASE_URI = environ.get('PROD_DATABASE_URI')
 
 
-class DevConfig(Config):
+class InitDevConfig(Config):
     FLASK_ENV = 'development'
     DEBUG = True
     TESTING = True
     SQLALCHEMY_DATABASE_URI = environ.get('DEV_DATABASE_URI')
+
+
+class DevConfig(Config):
+    FLASK_ENV = 'development'
+    DEBUG = True
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = environ.get('DEV_DATABASE_URI') + "/courses"
+
+
+class ProdConfig(Config):
+    FLASK_ENV = 'production'
+    DEBUG = False
+    TESTING = False
+    SQLALCHEMY_DATABASE_URI = environ.get('PROD_DATABASE_URI') + "/courses"
+

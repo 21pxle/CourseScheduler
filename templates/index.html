@@ -19,7 +19,7 @@
             <div class="child">
                 <select id="course" size="10" multiple>
                 {% for course in courses %}
-                    <option value="{{course.abbreviation}}">{{course.full_name}}</option>
+                    <option value="{{course.abbreviation}}">{{course.abbreviation}} - {{course.title}}</option>
                 {% endfor %}
                 </select>
             </div>
@@ -40,11 +40,11 @@
         <br><br>
         <label for="days">Day(s) Available:</label><br><br>
         <select id="days" size="5" name="days" multiple>
-            <option value="M">Monday</option>
-            <option value="T">Tuesday</option>
-            <option value="W">Wednesday</option>
-            <option value="R">Thursday</option>
-            <option value="F">Friday</option>
+            <option value="1">Monday</option>
+            <option value="2">Tuesday</option>
+            <option value="3">Wednesday</option>
+            <option value="4">Thursday</option>
+            <option value="5">Friday</option>
         </select><br><br>
         <label for="start1" oninput="checkStartEnd(this, document.getElementById('start2'))" >Start Time:</label>
         <input type="time" id="start1" name="start1" /> to <input type="time" id="start2" name="start2" /><br><br>
@@ -57,6 +57,9 @@
         <p>To use more filters, please <a href="login.html">log in</a> or <a href="signup.html">sign up</a> for an account.</p>
 
     </form>
+</div>
+<div class="results">
+
 </div>
 {% if query %}
 {% endif %}
