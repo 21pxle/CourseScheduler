@@ -13,26 +13,24 @@
 <div class="filter">
     <form>
         <h2>Filters</h2>
-        <label for="search">Search Course: </label><input type="text" id="search"/><br><br>
+        <label for="filter">Search Course: </label><input type="text" id="filter"/>
+        <button type="button" id="search" onclick="applySearchFilter();">Search</button>
+        <button type="button" id="clear" onclick="clearSearchFilter();">Clear</button><br><br>
         <div class="hbox">
             <!-- Every course listed in a college. -->
             <div class="child">
-                <select id="course" size="10" multiple>
+                <select id="course" class="search" multiple>
                 {% for course in courses %}
-                    <option value="{{course.abbreviation}}">{{course.abbreviation}} - {{course.title}}</option>
+                    <option value="{{course.title}}">{{course.abbreviation}} - {{course.title}}</option>
                 {% endfor %}
                 </select>
             </div>
             <div class="child">
-                <button class="button" type="button">Select Courses >></button><br><br>
-                <button class="button" type="button"><< Cancel Selection</button>
+                <button class="button" type="button" onclick="addCourses();">Select Courses >></button><br><br>
+                <button class="button" type="button" onclick="removeCourses();"><< Cancel Selection</button>
             </div>
             <div class="child">
-                <select id="selected" size="10" multiple>
-                {% for course in selected_courses %}
-                    <option value="{{course.abbreviation}}">{{course.full_name}}</option>
-                {% endfor %}
-                </select>
+                <select id="selected" class="search" multiple hidden></select>
             </div>
 
         </div>
@@ -59,8 +57,7 @@
     </form>
 </div>
 <div class="results">
-
-</div>
 {% if query %}
 {% endif %}
+</div>
 {% endblock %}
