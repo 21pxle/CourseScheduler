@@ -47,3 +47,13 @@
 input:invalid {
     background: red;
 }
+
+.bordered {
+    border: 1px solid black;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table.bordered th, table.bordered td {
+    border: 1px solid black;
+}

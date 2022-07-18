@@ -9,32 +9,22 @@
 {% endblock %}
 {% block content %}
 <h1>Welcome to the Scheduler 1.0</h1>
-<p>This website will allow you to ensure the best possible schedule.</p>
+<p>This website will allow you to ensure the best possible schedule. Please note that you may get a different result
+    every time you apply the filters. Also, please be patient when using those filters as the number of combinations of
+    courses, and therefore the amount of time it takes to provide schedules, can grow exponentially with the number
+    of courses.</p>
 <div class="filter">
-    <form>
+    <form method="post">
         <h2>Filters</h2>
         <label for="filter">Search Course: </label><input type="text" id="filter"/>
         <button type="button" id="search" onclick="applySearchFilter();">Search</button>
         <button type="button" id="clear" onclick="clearSearchFilter();">Clear</button><br><br>
-        <div class="hbox">
-            <!-- Every course listed in a college. -->
-            <div class="child">
-                <select id="course" class="search" multiple>
-                {% for course in courses %}
-                    <option value="{{course.title}}">{{course.abbreviation}} - {{course.title}}</option>
-                {% endfor %}
-                </select>
-            </div>
-            <div class="child">
-                <button class="button" type="button" onclick="addCourses();">Select Courses >></button><br><br>
-                <button class="button" type="button" onclick="removeCourses();"><< Cancel Selection</button>
-            </div>
-            <div class="child">
-                <select id="selected" class="search" multiple hidden></select>
-            </div>
-
-        </div>
-
+        <select class="search" id="course" name="courses" multiple>
+        {% for course in courses %}
+            <option value="{{course.id}}">{{course.abbreviation}} - {{course.title}}</option>
+        {% endfor %}
+        </select><br><br>
+        <!--
         <br><br>
         <label for="days">Day(s) Available:</label><br><br>
         <select id="days" size="5" name="days" multiple>
@@ -48,16 +38,48 @@
         <input type="time" id="start1" name="start1" /> to <input type="time" id="start2" name="start2" /><br><br>
         <label for="end1">End Time:</label>
         <input type="time" id="end1" name="end1" oninput="checkStartEnd(this, document.getElementById('end2'))" /> to <input type="time" name="end2" id="end2" /><br><br>
-        <label for="end1">Ideal Workload:</label>
-        <input type="number" id="credits1" name="credits1" min='0' max="100" step="0.5" oninput="checkStartEnd(this, document.getElementById('credits2'))" /> to <input type="number" id="credits2" name="credits2" min='0' max="100" step="0.5" /> credits<br><br><br>
-        <button type="button">Clear Filters</button>
 
+        <button type="button">Clear Filters</button><br><br>-->
+        <input type="submit" value="Apply Filters" /><br><br>
+        {% if not user %}
         <p>To use more filters, please <a href="login.html">log in</a> or <a href="signup.html">sign up</a> for an account.</p>
-
+        {% else %}
+        <input type="submit" value="Edit Preferences" name="prefs" />
+        {% endif %}
     </form>
-</div>
+</div><br><br>
 <div class="results">
-{% if query %}
-{% endif %}
+    {% if results|length %}
+        <form method="post">
+            <p><input type="submit" value="<< Previous Page" name="previous" />
+                <input type="hidden" name="page" />
+                Page Number: <input type="number" step="1" max="{{ num_pages }}" min="1" name="nav" />
+                <input type="submit" value="Go to Page" /> <input type="submit" value="Next Page >>" name="next" />
+            </p>
+        </form>
+        <p>Viewing results <strong>{{ 25 * page + 1 }}</strong> to <strong>{{ end }}</strong> out of
+            <strong>{{ results|length }}</strong> (Page <strong>{{ page + 1 }}</strong> of
+            <strong>{{ num_pages }}</strong>)</p><br>
+        {% for result, score in query %}
+            <h3>Result {{ 25 * page + loop.index }}</h3>
+            <table class="bordered">
+                <tr>
+                    <th colspan="3">Match Rating: {{score}}%</th>
+                </tr>
+                <tr>
+                    <th>Course Title</th>
+                    <th>Section</th>
+                    <th>Schedule</th>
+                </tr>
+                {% for schedule in result %}
+                <tr>
+                    <td>{{ selected_courses[loop.index0] }}</td>
+                    <td>{{ schedule.section }}</td>
+                    <td>{{ schedule.times() }}</td>
+                </tr>
+                {% endfor %}
+            </table><br><br>
+        {% endfor %}
+    {% endif %}
 </div>
 {% endblock %}

@@ -1,8 +1,9 @@
-import csv
+# import csv
 import random
 
 import math
 import itertools
+
 import numpy as np
 from flask import (
     Flask,
@@ -12,6 +13,7 @@ from flask import (
     redirect,
     g,
     session)
+from datetime import date, datetime, timedelta
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 
@@ -21,6 +23,9 @@ app = Flask(__name__)
 app.config.from_object('config.InitDevConfig')
 db = SQLAlchemy(app)
 bcrypt_flask = Bcrypt(app)
+page_num = 0  # For results
+results, courses = [], []
+
 
 @app.before_request
 def load_student():
@@ -34,7 +39,30 @@ def load_student():
 # The index route would provide the "basic" functionalities of the course selection.
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template('/index.html', courses=all_courses)
+    global page_num, results, courses
+    if request.method == 'POST':
+        if 'prefs' in request.form:
+            return redirect(url_for("profile"))
+        if 'courses' in request.form:
+            courses = request.form.getlist('courses')
+            if g.user is None:
+                results = guest_algorithm(courses)
+            else:
+                results = genetic_algorithm(courses, 0.8)
+        if 'page' in request.form:
+            if 'previous' in request.form:
+                page_num = max(0, page_num - 1)
+            elif 'next' in request.form:
+                page_num = min((len(results) - 1) // 25, page_num + 1)
+            else:
+                page_num = int(request.form['nav']) - 1
+
+    selected = [x for (x,) in Course.query.with_entities(Course.title)
+                                    .filter(Course.id.in_(courses)).order_by(Course.id.asc()).all()]
+
+    return render_template('/index.html', courses=all_courses, selected_courses=selected,
+                           query=display(results, page_num), page=page_num, end=min(25 * (page_num + 1), len(results)),
+                           num_pages=(len(results) + 24) // 25, results=results, user=g.user)
 
 
 @app.route('/login.html', methods=['POST', 'GET'])
@@ -119,16 +147,9 @@ def profile():
         return redirect(url_for("login"))
 
     if request.method == "POST":
-        # TODO add preferences for the user.
-        # Validate preferences
         form = request.form
-        """db.session.add(AvailableTimes(
-            student_id=g.user.id,
-            day=1,
-            start='2:00',
-            end='3'
-        ))"""
-
+        if "scheduler" in form:
+            return redirect(url_for("index"))
         # There should be no overlapping intervals. The intervals variable is designed to hold 2-tuples of strings.
         intervals = get_intervals(form)
         overlap = False
@@ -170,7 +191,7 @@ class Course(db.Model):
     __tablename__ = 'Course'
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
+    title = db.Column(db.String(100), unique=True, nullable=False)
     abbreviation = db.Column(db.String(10), nullable=False)
     category = db.Column(db.String(10), nullable=False)
 
@@ -267,6 +288,16 @@ class Schedule(db.Model):
     thursdays = db.Column(db.Boolean, nullable=False)
     fridays = db.Column(db.Boolean, nullable=False)
 
+    def times(self):
+        scheduled = [self.mondays, self.tuesdays, self.wednesdays, self.thursdays, self.fridays]
+        text = ["mondays", "tuesdays", "wednesdays", "thursdays", "fridays"]
+        days = [word.capitalize() for (idx, word) in enumerate(text) if scheduled[idx]]
+        today = date.today()
+        scheduled_days = ",".join(days[:(len(days) - 1)]) + " and " + days[len(days) - 1] if len(days) > 1 else days[0]
+        scheduled_times = f"{datetime.combine(today, self.start).strftime('%I:%M %p')} to " \
+                          f"{datetime.combine(today, self.end).strftime('%I:%M %p')}"
+        return scheduled_days + ", " + scheduled_times
+
 
 class AvailableTimes(db.Model):
     """Data model for student availablity"""
@@ -286,6 +317,7 @@ app.config.from_object('config.DevConfig')
 db.session.execute("USE courses;")
 db.create_all()
 all_courses = Course.query.all()
+all_professors = Professor.query.all()
 
 '''
 with open('static/data/Professor.csv', 'r') as file:
@@ -320,28 +352,82 @@ db.session.commit()'''
 # If you've made it this far into the code, congratulations.
 # Genetic Algorithms
 def mutate(genome, indices, rules):
+    result = list(genome)
     for i, j in enumerate(indices):
-        genome[j] = random.choice(rules[i])
-    return genome
+        lst = list(set(rules[i]) - {result[j]})
+        if not len(lst):
+            lst.append(result[j])
+        result[j] = random.choice(lst)
+    return tuple(result)
+
+
+def guest_algorithm(selected_courses):
+    result, rules = [], [[x for (x,) in Schedule.query.with_entities(Schedule.id).filter(
+        Schedule.course_id == course).all()] for course in selected_courses]
+
+    result = set()
+    genomes = [[]]
+    product = 1.
+    for rule in rules:
+        # Gives all possible choices.
+        product *= len(rule)
+
+    # Count all population if it is less than 50k.
+    if product < 50000:
+        for count, r in enumerate(rules):
+            genomes = itertools.product(genomes, r)
+            genomes = list(flatten(genomes))
+            genomes = [genome for genome in chunks(genomes, count + 1) if overlap_test(genome)]
+
+        result = random.sample(genomes, k=min(1000, len(genomes)))
+
+        return [(Schedule.query.filter(Schedule.id.in_(genome)).order_by(Schedule.id.asc()).all(), 100)
+                for genome in result]
+
+    trials = 0
+    while len(result) < 1000 and trials < 50000:
+        genome = [random.choice(rule) for rule in rules]
+        if overlap_test(genome):
+            result.add((*genome,))
+        trials += 1
+
+    return [Schedule.query.filter(Schedule.id.in_(genome)).order_by(Schedule.id.asc()).all() for genome in result]
+
+
+def display(query, page=0):
+    return query[(25 * page):(25 * (page + 1))]
+
+
+def flatten(lst):
+    for i in lst:
+        yield from [i] if not isinstance(i, tuple) and not isinstance(i, list) else flatten(i)
+
+
+def chunks(lst, n):
+    """Yield successive n-sized chunks from lst."""
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
 
 
 # Genome: A list of numbers that concern the course IDs.
 # Gene: The ID of that specific course
-def brute_force(courses):
+def brute_force(lst):
     # The brute-force approach is the most straightforward.
     # It is used when there is a sufficiently small number
-    # of combinations of courses (order less than ~500k).
-    courses = [Schedule.query.filter(Schedule.course_id == course_id).all() for course_id in courses]
-    population = list(itertools.product(*courses))
+    # of combinations of courses (order less than ~50k).
+    lst_courses = [Schedule.query.filter(Schedule.course_id == course_id).all() for course_id in lst]
+    population = list(itertools.product(*lst_courses))
 
     # This parameter should change according to the preferences.
     # For more details, please refer to the fitness function.
-    scores = [fitness(genome, courses, 0.8) for genome in population]
+    scores = [fitness(genome, 0.8) for genome in population]
     possibilities = list(filter(lambda x: x[1] > 0, list(zip(population, scores))))
     possibilities = sorted(possibilities, key=lambda x: x[1], reverse=True)
 
     # Take the top 5 solutions.
     return possibilities[:5]
+
+
 # Rules: A list of numbers that govern the number of sections with the specific course ID.
 
 
@@ -351,7 +437,136 @@ def crossover(genome1, genome2):
     return genome1[:point] + genome2[point:], genome2[:point] + genome1[point:]
 
 
-def genetic_algorithm(courses, alpha):
+def overlap_test(genome):
+    intervals = {'monday': [], 'tuesday': [], 'wednesday': [], 'thursday': [], 'friday': []}
+    days = [key for key in intervals.keys()]
+    professors = []
+
+    # Every gene will have their intervals added to the dict shown above.
+    schedules = Schedule.query.filter(Schedule.id.in_(genome)).all()
+    if not len(schedules):
+        raise ValueError('No course section found. Please try again.')
+    for schedule in schedules:
+        professors.append(schedule.professor_id)
+        scheduled_days = [schedule.mondays, schedule.tuesdays, schedule.wednesdays,
+                          schedule.thursdays, schedule.fridays]
+        scheduled_times = [schedule.start, schedule.end]
+        for day_num, scheduled in enumerate(scheduled_days):
+            if scheduled:
+                intervals[days[day_num]].append(scheduled_times)
+
+    for day in intervals:
+        intervals[day] = sorted(intervals[day], key=lambda x: x[0])
+
+    # Check for overlaps in break time.
+    for key in intervals:
+        for i in range(len(intervals[key]) - 1):
+            # An overlapping interval starts later than the earlier interval ends.
+            if intervals[key][i + 1][0] < intervals[key][i][1]:
+                return False
+    return True
+
+
+def relative_rating(genome, professors):
+    all_ratings = []
+    for prof in all_professors:
+        rating, count = Review.query.with_entities(db.func.avg(Review.rating).label('average'),
+                                                   db.func.count(Review.rating).label('count')) \
+            .filter(Review.professor_id == prof.id).first()
+        rating = float(rating)
+        prof_adj_rating = (rating * count + 9.604 - 1.96 *
+                           math.sqrt(count * rating * (5 - rating) + 24.01)) / (count + 3.8416)
+        all_ratings.append((prof.id, round(prof_adj_rating, 3) + 0.0001 * round(rating, 3)))
+
+    # Standardize ratings only if there is a difference between the ratings:
+    ratings_list = [rating for (_, rating) in all_ratings]
+    r = max(ratings_list) - min(ratings_list)
+    if r > 0:
+        ratings_list = (np.array(ratings_list) - min(*ratings_list)) / r  # Normalize between 0 and 1.
+        all_ratings = [(x, y) for (x, y) in zip(all_professors, ratings_list)]
+    else:
+        all_ratings = [(prof.id, 1) for prof in all_professors]
+    ratings_dict = dict(all_ratings)
+    score = 0
+    for prof_id in professors:
+        score += ratings_dict[prof_id]
+
+    score *= 100 / len(genome)
+    return score
+
+
+def fitness(genome, alpha):
+    # Each gene represents one section ID. The availability of a person is a dict of intervals, which each consist of
+    # a start time and an end time. It also requires the user to be registered.
+    intervals = {'monday': [], 'tuesday': [], 'wednesday': [], 'thursday': [], 'friday': []}
+    days = [key for key in intervals.keys()]
+    professors = []
+    # Special cases of alpha
+
+    # Every gene will have their intervals added to the dict shown above.
+    for i, gene in enumerate(genome):
+        schedule = Schedule.query.filter(Schedule.id == gene).first()
+        if not schedule:
+            raise TypeError('No course section found. Please try again.')
+        professors.append(schedule.professor_id)
+        scheduled_days = [schedule.mondays, schedule.tuesdays, schedule.wednesdays,
+                          schedule.thursdays, schedule.fridays]
+        for day_num, scheduled in enumerate(scheduled_days):
+            if scheduled:
+                intervals[days[day_num]].append([schedule.start, 'S'])  # Mark as start of interval
+                intervals[days[day_num]].append([schedule.end, 'E'])  # Mark as end of interval
+
+    for day in intervals:
+        # interval: {"mondays": [[x], [y], [z]]}
+        intervals[day] = sorted(intervals[day], key=lambda x: x[0])
+
+    # Check for overlaps in break time.
+    course_time = timedelta(0)
+    today = date.today()
+    for key in intervals:
+        count = 0
+        for idx, interval in enumerate(intervals[key]):
+            # An overlapping interval starts later than the earlier interval ends.
+            count += 1 if interval[1] == "S" else -1
+            if interval[1] == "E":
+                course_time += datetime.combine(today, interval[0]) \
+                               - datetime.combine(today, intervals[key][idx - 1][0])
+            if count > 1:
+                return 0
+
+    if alpha == 0:
+        return relative_rating(genome, professors)
+
+    available_intervals = [AvailableTimes.query.filter(AvailableTimes.student_id == g.user.id,
+                                                       AvailableTimes.day == x).all() for x in range(1, 6)]
+    for i in range(5):
+        for interval in available_intervals[i]:
+            intervals[days[i]].append([interval.start, "S"])
+            intervals[days[i]].append([interval.end, "E"])
+
+    for day in intervals:
+        intervals[day] = sorted(intervals[day], key=lambda x: x[0])
+    # Availability overlap should be maximized.
+    overlap = timedelta(0)
+
+    count = 0
+
+    for key in intervals:
+        for idx, interval in enumerate(intervals[key]):
+            # An overlapping interval starts later than the earlier interval ends.
+            if count > 1:
+                overlap += datetime.combine(today, interval[0]) \
+                           - datetime.combine(today, intervals[key][idx - 1][0])
+            count += 1 if interval[1] == "S" else -1
+
+    # Short-circuiting operation since it's moot that ratings are unnecessary.
+    if alpha == 1:
+        return 100 * overlap / course_time
+
+    return 100 * alpha * (overlap / course_time) + (1 - alpha) * relative_rating(genome, professors)
+
+
+def genetic_algorithm(selected_courses, alpha):
     # Alpha is a parameter that takes into account the preferences of a better professor
     # vs. a timeline more flexible. The courses are based on the user's preferences.
     # If the ratings don't account in the decision to take some course,
@@ -363,137 +578,54 @@ def genetic_algorithm(courses, alpha):
     # For smaller problem sizes, brute forcing would work better than genetic algorithms
     # because the speed advantage is less than that of brute force.
 
-    result, rules = [], [Schedule.query.filter(Schedule.course_id == course_id).all() for course_id in courses]
+    result, rules = [], [[x for (x,) in
+                          Schedule.query.with_entities(Schedule.id).filter(Schedule.course_id == course).all()]
+                         for course in selected_courses]
 
-    population = [[random.choice(rule) for rule in rules] for _ in range(500)]
-    for i in range(300):
-        scores = [fitness(genome, courses, alpha) for genome in population]
+    population = [tuple(random.choice(rule) for rule in rules) for _ in range(500)]
+    for i in range(50):
+        scores = [fitness(list(genome), alpha) for genome in population]
 
         # Fitness score will be between 0 and 100.
-        scoreboard = sorted(list(zip(population, scores)), key=lambda x: x[1], reverse=True)
+        scoreboard = list(sorted(list(zip(population, scores)), key=lambda x: x[1], reverse=True))
 
-        # Prematurely add the top 5 solutions if the fitness function is within 1% of optimal solution.
-        if scoreboard[0][1] > 99:
-            return [genome for (genome, score) in population[:5] if score > 95]
+        print(i, scoreboard[0][1])
+        # Prematurely add the top solutions if the fitness function is within 5% of optimal solution.
+        if scoreboard[0][1] >= 98:
+            break
 
-        # Cast into
+        # Cast into variables from 0 to 1.
         scores = np.array(scores)
         scores -= min(scores)
         scores /= max(scores)
-        fathers = random.choices(population=population, weights=scores, k=200)
-        mothers = random.choices(population=population, weights=scores, k=200)
-        offspring = [crossover(father, mother) for father, mother in (fathers, mothers)]
+        # The number of individuals should be 500 for the next generation.
+        # Due to the uniqueness of the population, however, it should be noted
+        # that if there are less than 100 individuals, then there must be more
+        # offspring to compensate for the lack of diversity.
+        fathers = random.choices(population=population, weights=scores, k=max(200, 250 - len(population) // 2))
+        mothers = random.choices(population=population, weights=scores, k=max(200, 250 - len(population) // 2))
+        offspring = [crossover(mother, father) for (father, mother) in zip(fathers, mothers)]
         offspring = [x for xs in offspring for x in xs]  # Unpack a list of lists
 
-        for genome in offspring:
+        for idx, genome in enumerate(offspring):
             # There is a 1% chance that a specific gene will be mutated.
-            num_genes_mutated = min(np.random.binomial(7, 0.01), 7)
-            genes_mutated = random.sample(list(range(len(courses))), k=num_genes_mutated)
+            num_genes_mutated = np.random.binomial(7, 0.01)
+            genes_mutated = random.sample(list(range(len(selected_courses))), k=num_genes_mutated)
             if num_genes_mutated:
-                mutate(genome, genes_mutated, [rules[gene] for gene in genes_mutated])
+                offspring[idx] = mutate(genome, genes_mutated, [rules[gene] for gene in genes_mutated])
 
         # Top 100 solutions also get into the next generation
-        population = [genome for genome, _ in scoreboard[:100]] + offspring
-    # Return the best 5 fits if they are close enough to the solution.
-    scores = [fitness(genome, courses, alpha) for genome in population]
+        population = [genome for genome, _ in list(scoreboard)[:100]] + offspring
+        if len(population) > 500:
+            population.pop()
+    # Return the best fits if they are close enough to the solution.
+    scores = [fitness(list(genome), alpha) for genome in population]
     scoreboard = sorted(list(zip(population, scores)), key=lambda x: x[1], reverse=True)
     max_score = scoreboard[0][1]
-    return [genome for genome, score in scoreboard[:5] if score > 0.95 * max_score]
-
-
-def fitness(genome, courses, alpha):
-    # Each gene represents one section ID. The availability of a person is a dict of intervals, which each consist of
-    # a start time and an end time.
-    intervals = {'monday': [], 'tuesday': [], 'wednesday': [], 'thursday': [], 'friday': []}
-    days = [key for key in intervals.keys()]
-    professors = []
-
-    # Special cases of alpha
-    if alpha == 0:
-        adj_rating, overall_rating = 0, 0
-        for prof_id in professors:
-
-            rating = Review.query.with_entities(db.func.avg(Review.rating)
-                                                .label('average')).filter(Review.professor_id == prof_id)
-            count = Review.query.with_entities(db.func.count(Review.rating)
-                                               .label('count')).filter(Review.professor_id == prof_id)
-            if count > 0:
-                overall_rating += rating
-                adj_rating += (rating * count + 9.604 - 1.96 *
-                               math.sqrt(count * rating * (5 - rating) + 24.01)) / (count + 3.8416)
-        adj_rating = max(0, adj_rating) / len(courses)
-        overall_rating = max(0, overall_rating) / len(courses)
-        return 20 * adj_rating + 0.002 * overall_rating
-
-    # Every gene will have their intervals added to the dict shown above.
-    for i, gene in enumerate(genome):
-        schedule = Schedule.query.filter(Schedule.id == gene).first()
-        if not schedule:
-            raise TypeError('No course section found. Please try again.')
-        professors.append(schedule.professor_id)
-        scheduled_days = [schedule.mondays, schedule.tuesdays, schedule.wednesdays,
-                          schedule.thursdays, schedule.fridays]
-        scheduled_times = [get_time(schedule.start), get_time(schedule.end)]
-        for day_num, scheduled in enumerate(scheduled_days):
-            if scheduled:
-                intervals[days[day_num]].append(scheduled_times)
-
-    for day in intervals:
-        intervals[day] = sorted(intervals[day], key=lambda x: x[0])
-
-    # Check for overlaps in break time.
-    overlap = False
-    course_time = 0
-    for key in intervals:
-        for i in range(len(intervals[key]) - 1):
-            # An overlapping interval starts later than the earlier interval ends.
-            course_time += intervals[key][i][0] - intervals[key][i][0]
-            if intervals[key][i + 1][0] < intervals[key][i][1]:
-                overlap = True
-                break
-        else:
-            interval = intervals[key][len(intervals[key])]
-            course_time += interval[1] - interval[0]
-            continue
-        break
-
-    if overlap:
-        return 0  # Courses cannot overlap with each other.
-
-    available_intervals = [AvailableTimes.query.filter(AvailableTimes.student_id == g.user.id,
-                                                       AvailableTimes.day == x).all() for x in range(1, 6)]
-    for i in range(5):
-        for interval in available_intervals[i]:
-            intervals[days[i]].append(interval)
-
-    # Availability overlap should be maximized.
-    overlap = 0.
-
-    for key in intervals:
-        for i in range(len(intervals[key]) - 1):
-            if intervals[key][i + 1][0] < intervals[key][i][1]:
-                overlap += intervals[key][i][1] - intervals[key][i + 1][0]
-
-    # Short-circuiting operation since it's moot that ratings are unnecessary.
-    if alpha == 1:
-        return 100 * overlap / course_time
-
-    # Add ratings:
-    adj_rating, overall_rating = 0, 0
-    for prof_id in professors:
-
-        rating = Review.query.with_entities(db.func.avg(Review.rating)
-                                            .label('average')).filter(Review.professor_id == prof_id)
-        count = Review.query.with_entities(db.func.count(Review.rating)
-                                           .label('count')).filter(Review.professor_id == prof_id)
-        if count > 0:
-            overall_rating += rating
-            adj_rating += (rating * count + 9.604 - 1.96 *
-                           math.sqrt(count * rating * (5 - rating) + 24.01)) / (count + 3.8416)
-    adj_rating = max(0, adj_rating) / len(courses)
-    overall_rating = max(0, overall_rating) / len(courses)
-
-    return 100 * alpha * (overlap / course_time) + (1 - alpha) * (20 * adj_rating + 0.002 * overall_rating)
+    result = dict(itertools.takewhile(lambda x: x[1] >= 0.95 * max_score, scoreboard))
+    return [(genome, round(score, 1)) for genome, score in zip([Schedule.query.filter(Schedule.id.in_(genome))
+                                                                        .order_by(Schedule.id.asc()).all()
+                                                                for genome in result.keys()], list(result.values()))]
 
 
 if __name__ == '__main__':
