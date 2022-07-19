@@ -27,6 +27,12 @@ page_num = 0  # For results
 results, courses = [], []
 
 
+@app.before_first_request
+def permanent_session():
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=20)
+
+
 @app.before_request
 def load_student():
     g.user = None
@@ -293,7 +299,7 @@ class Schedule(db.Model):
         text = ["mondays", "tuesdays", "wednesdays", "thursdays", "fridays"]
         days = [word.capitalize() for (idx, word) in enumerate(text) if scheduled[idx]]
         today = date.today()
-        scheduled_days = ",".join(days[:(len(days) - 1)]) + " and " + days[len(days) - 1] if len(days) > 1 else days[0]
+        scheduled_days = ", ".join(days[:(len(days) - 1)]) + " and " + days[len(days) - 1] if len(days) > 1 else days[0]
         scheduled_times = f"{datetime.combine(today, self.start).strftime('%I:%M %p')} to " \
                           f"{datetime.combine(today, self.end).strftime('%I:%M %p')}"
         return scheduled_days + ", " + scheduled_times
@@ -352,13 +358,10 @@ db.session.commit()'''
 # If you've made it this far into the code, congratulations.
 # Genetic Algorithms
 def mutate(genome, indices, rules):
-    result = list(genome)
     for i, j in enumerate(indices):
-        lst = list(set(rules[i]) - {result[j]})
-        if not len(lst):
-            lst.append(result[j])
-        result[j] = random.choice(lst)
-    return tuple(result)
+        lst = list(set(rules[i]) - {genome[j]})
+        if len(lst):
+            genome[j] = random.choice(lst)
 
 
 def guest_algorithm(selected_courses):
@@ -367,13 +370,10 @@ def guest_algorithm(selected_courses):
 
     result = set()
     genomes = [[]]
-    product = 1.
-    for rule in rules:
-        # Gives all possible choices.
-        product *= len(rule)
+    log_product = sum(math.log10(len(rule)) for rule in rules)
 
-    # Count all population if it is less than 50k.
-    if product < 50000:
+    # Count all population if it is less than 50k. The logarithm of that number happens to be 5 - log10(2).
+    if log_product < 5 - math.log10(2):
         for count, r in enumerate(rules):
             genomes = itertools.product(genomes, r)
             genomes = list(flatten(genomes))
@@ -391,7 +391,7 @@ def guest_algorithm(selected_courses):
             result.add((*genome,))
         trials += 1
 
-    return [Schedule.query.filter(Schedule.id.in_(genome)).order_by(Schedule.id.asc()).all() for genome in result]
+    return [(Schedule.query.filter(Schedule.id.in_(genome)).order_by(Schedule.id.asc()).all(), 100) for genome in result]
 
 
 def display(query, page=0):
@@ -468,29 +468,12 @@ def overlap_test(genome):
 
 
 def relative_rating(genome, professors):
-    all_ratings = []
-    for prof in all_professors:
-        rating, count = Review.query.with_entities(db.func.avg(Review.rating).label('average'),
-                                                   db.func.count(Review.rating).label('count')) \
-            .filter(Review.professor_id == prof.id).first()
-        rating = float(rating)
-        prof_adj_rating = (rating * count + 9.604 - 1.96 *
-                           math.sqrt(count * rating * (5 - rating) + 24.01)) / (count + 3.8416)
-        all_ratings.append((prof.id, round(prof_adj_rating, 3) + 0.0001 * round(rating, 3)))
-
+    global all_ratings
     # Standardize ratings only if there is a difference between the ratings:
-    ratings_list = [rating for (_, rating) in all_ratings]
-    r = max(ratings_list) - min(ratings_list)
-    if r > 0:
-        ratings_list = (np.array(ratings_list) - min(*ratings_list)) / r  # Normalize between 0 and 1.
-        all_ratings = [(x, y) for (x, y) in zip(all_professors, ratings_list)]
-    else:
-        all_ratings = [(prof.id, 1) for prof in all_professors]
     ratings_dict = dict(all_ratings)
     score = 0
     for prof_id in professors:
         score += ratings_dict[prof_id]
-
     score *= 100 / len(genome)
     return score
 
@@ -502,38 +485,33 @@ def fitness(genome, alpha):
     days = [key for key in intervals.keys()]
     professors = []
     # Special cases of alpha
-
     # Every gene will have their intervals added to the dict shown above.
-    for i, gene in enumerate(genome):
-        schedule = Schedule.query.filter(Schedule.id == gene).first()
-        if not schedule:
-            raise TypeError('No course section found. Please try again.')
+    schedules = Schedule.query.filter(Schedule.id.in_(genome)).all()
+
+    course_time = timedelta(0)
+    today = date.today()
+    for schedule in schedules:
         professors.append(schedule.professor_id)
         scheduled_days = [schedule.mondays, schedule.tuesdays, schedule.wednesdays,
                           schedule.thursdays, schedule.fridays]
+        course_time += (datetime.combine(today, schedule.end) -
+                        datetime.combine(today, schedule.start)) * sum(scheduled_days)
         for day_num, scheduled in enumerate(scheduled_days):
             if scheduled:
                 intervals[days[day_num]].append([schedule.start, 'S'])  # Mark as start of interval
                 intervals[days[day_num]].append([schedule.end, 'E'])  # Mark as end of interval
 
-    for day in intervals:
-        # interval: {"mondays": [[x], [y], [z]]}
-        intervals[day] = sorted(intervals[day], key=lambda x: x[0])
-
+    if not len(schedules):
+        raise TypeError('No course section found. Please try again.')
+    intervals = {day: sorted(intervals[day], key=lambda x: x[0]) for day in intervals}
     # Check for overlaps in break time.
-    course_time = timedelta(0)
-    today = date.today()
     for key in intervals:
         count = 0
         for idx, interval in enumerate(intervals[key]):
             # An overlapping interval starts later than the earlier interval ends.
             count += 1 if interval[1] == "S" else -1
-            if interval[1] == "E":
-                course_time += datetime.combine(today, interval[0]) \
-                               - datetime.combine(today, intervals[key][idx - 1][0])
             if count > 1:
                 return 0
-
     if alpha == 0:
         return relative_rating(genome, professors)
 
@@ -578,55 +556,78 @@ def genetic_algorithm(selected_courses, alpha):
     # For smaller problem sizes, brute forcing would work better than genetic algorithms
     # because the speed advantage is less than that of brute force.
 
+    global all_ratings
+
     result, rules = [], [[x for (x,) in
                           Schedule.query.with_entities(Schedule.id).filter(Schedule.course_id == course).all()]
                          for course in selected_courses]
 
-    population = [tuple(random.choice(rule) for rule in rules) for _ in range(500)]
-    for i in range(50):
-        scores = [fitness(list(genome), alpha) for genome in population]
+    ratings = Review.query.with_entities(Review.professor_id, db.func.avg(Review.rating).label('average'),
+                                         db.func.count(Review.rating).label('count')).group_by(
+        Review.professor_id).all()
+    ratings = [(prof_id, float(rating), count) for (prof_id, rating, count) in ratings]
+    prof_adj_ratings = [
+        (prof_id, rating, (rating * count + 9.604 - 1.96 * math.sqrt(count * rating * (5 - rating) + 24.01))
+         / (count + 3.8416)) for (prof_id, rating, count) in ratings]
+    all_ratings = [(prof_id, round(adj_rating, 3) + 0.0001 * round(rating, 3))
+                   for (prof_id, rating, adj_rating) in prof_adj_ratings]
+
+    ratings_list = [rating for (_, rating) in all_ratings]
+    r = max(ratings_list) - min(ratings_list)
+    if r > 0:
+        ratings_list = (np.array(ratings_list) - min(*ratings_list)) / r  # Normalize between 0 and 1.
+        all_ratings = [(x, y) for (x, y) in zip(all_professors, ratings_list)]
+    else:
+        all_ratings = [(prof.id, 1) for prof in all_professors]
+
+    population = [[random.choice(rule) for rule in rules] for _ in range(500)]
+    for i in range(100):
+        scores = [fitness(genome, alpha) for genome in population]
 
         # Fitness score will be between 0 and 100.
-        scoreboard = list(sorted(list(zip(population, scores)), key=lambda x: x[1], reverse=True))
-
-        print(i, scoreboard[0][1])
-        # Prematurely add the top solutions if the fitness function is within 5% of optimal solution.
-        if scoreboard[0][1] >= 98:
+        scoreboard = {tuple(k): v for (k, v) in sorted(list(zip(population, scores)), key=lambda x: x[1], reverse=True)}
+        population, scores = [list(k) for k in scoreboard.keys()], list(scoreboard.values())
+        print(f'Iteration {i}, {scoreboard[next(iter(scoreboard))]}')
+        # Prematurely end the loop if the top result has a 98% or higher match rating.
+        if scoreboard[next(iter(scoreboard))] >= 98:
             break
 
         # Cast into variables from 0 to 1.
         scores = np.array(scores)
         scores -= min(scores)
         scores /= max(scores)
+        scores += 0.1
         # The number of individuals should be 500 for the next generation.
         # Due to the uniqueness of the population, however, it should be noted
         # that if there are less than 100 individuals, then there must be more
         # offspring to compensate for the lack of diversity.
         fathers = random.choices(population=population, weights=scores, k=max(200, 250 - len(population) // 2))
         mothers = random.choices(population=population, weights=scores, k=max(200, 250 - len(population) // 2))
-        offspring = [crossover(mother, father) for (father, mother) in zip(fathers, mothers)]
+        offspring = [crossover(mother, father) for father, mother in zip(fathers, mothers)]
         offspring = [x for xs in offspring for x in xs]  # Unpack a list of lists
 
-        for idx, genome in enumerate(offspring):
+        for genome in offspring:
             # There is a 1% chance that a specific gene will be mutated.
             num_genes_mutated = np.random.binomial(7, 0.01)
             genes_mutated = random.sample(list(range(len(selected_courses))), k=num_genes_mutated)
             if num_genes_mutated:
-                offspring[idx] = mutate(genome, genes_mutated, [rules[gene] for gene in genes_mutated])
+                mutate(genome, genes_mutated, [rules[gene] for gene in genes_mutated])
 
         # Top 100 solutions also get into the next generation
-        population = [genome for genome, _ in list(scoreboard)[:100]] + offspring
+        population = [list(x) for x in list(scoreboard)[:100] + offspring]
         if len(population) > 500:
             population.pop()
     # Return the best fits if they are close enough to the solution.
-    scores = [fitness(list(genome), alpha) for genome in population]
-    scoreboard = sorted(list(zip(population, scores)), key=lambda x: x[1], reverse=True)
+    scores = [fitness(genome, alpha) for genome in population]
+    scoreboard = sorted(list(zip([tuple(genome) for genome in population], scores)), key=lambda x: x[1], reverse=True)
     max_score = scoreboard[0][1]
     result = dict(itertools.takewhile(lambda x: x[1] >= 0.95 * max_score, scoreboard))
     return [(genome, round(score, 1)) for genome, score in zip([Schedule.query.filter(Schedule.id.in_(genome))
-                                                                        .order_by(Schedule.id.asc()).all()
+                                                               .order_by(Schedule.id.asc()).all()
                                                                 for genome in result.keys()], list(result.values()))]
 
+
+all_ratings = []
 
 if __name__ == '__main__':
     app.run()
