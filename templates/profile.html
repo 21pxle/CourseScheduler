@@ -15,6 +15,9 @@
 {% if error %}
     <p class="error"><strong>Error: </strong> {{ error }}</p><br><br>
 {% endif %}
+{% if message %}
+<p>{{ message }}</p><br><br>
+{% endif %}
 <form method="post">
 <table class="bordered">
     <tr>
@@ -39,7 +42,7 @@
                            value="{{ pref.start }}" id="mondayStart{{ loop.index }}"
                            name="mondayStart{{ loop.index}}" /> to
                         <input type="time" id="mondayEnd{{ loop.index }}"
-                               value="{{ pref.end }}" name="mondayEnd{{ loop.index }}" /><br>
+                               value="{{ pref.end }}" name="mondayEnd{{ loop.index }}" min="{{ pref.start }}" /><br>
                     </div>
                 {% endfor %}
             {% else %}
@@ -58,7 +61,7 @@
                                value="{{ pref.start }}" id="tuesdayStart{{ loop.index }}"
                                name="tuesdayStart{{ loop.index}}" /> to
                         <input type="time" id="tuesdayEnd{{ loop.index }}"
-                               value="{{ pref.end }}" name="tuesdayEnd{{ loop.index }}" /><br>
+                               value="{{ pref.end }}" name="tuesdayEnd{{ loop.index }}" min="{{ pref.start }}" /><br>
                     </div>
                 {% endfor %}
             {% else %}
@@ -77,14 +80,14 @@
                                value="{{ pref.start }}" id="wednesdayStart{{ loop.index }}"
                                name="wednesdayStart{{ loop.index}}" /> to
                         <input type="time" value="{{ pref.end }}" id="wednesdayEnd{{ loop.index }}"
-                               name="wednesdayEnd{{ loop.index }}" /><br>
+                               name="wednesdayEnd{{ loop.index }}" min="{{ pref.start }}" /><br>
                     </div>
                 {% endfor %}
             {% else %}
                 <div>
                     <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
                            value="00:00" id="wednesdayStart1" name="wednesdayStart1" /> to
-                    <input type="time" value="23:59" id="wednesdayEnd1" name="wednesdayEnd1" /><br>
+                    <input type="time" value="23:59" id="wednesdayEnd1" name="wednesdayEnd1" min="{{ pref.start }}" /><br>
                 </div>
             {% endif %}
         </td>
@@ -96,7 +99,7 @@
                                value="{{ pref.start }}" id="thursdayStart{{ loop.index }}"
                                name="thursdayStart{{ loop.index}}" /> to
                         <input type="time" value="{{ pref.end }}" id="thursdayEnd{{ loop.index }}"
-                               name="thursdayEnd{{ loop.index }}" /><br>
+                               name="thursdayEnd{{ loop.index }}" min="{{ pref.start }}" /><br>
                     </div>
                 {% endfor %}
             {% else %}
@@ -115,7 +118,7 @@
                                value="{{ pref.start }}" id="fridayStart{{ loop.index }}"
                                name="fridayStart{{ loop.index}}" /> to
                         <input type="time" value="{{ pref.end }}" id="fridayEnd{{ loop.index }}"
-                               name="fridayEnd{{ loop.index }}" /><br>
+                               name="fridayEnd{{ loop.index }}" min="{{ pref.start }}" /><br>
                     </div>
                 {% endfor %}
             {% else %}

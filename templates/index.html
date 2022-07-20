@@ -10,12 +10,10 @@
 {% block content %}
 <h1>Welcome to the Scheduler 1.0</h1>
 <p>This website will allow you to ensure the best possible schedule. Please note that you may get a different result
-    every time you apply the filters. Also, please be patient when using those filters as the number of combinations of
-    courses, and therefore the amount of time it takes to provide schedules, can grow exponentially with the number
-    of courses.</p>
-<div class="filter">
+    every time you run the scheduling algorithm. Also, please be patient as it can take a while to provide courses.</p>
+<div class="scheduler">
     <form method="post">
-        <h2>Filters</h2>
+        <h2>Course Scheduler</h2>
         <label for="filter">Search Course: </label><input type="text" id="filter"/>
         <button type="button" id="search" onclick="applySearchFilter();">Search</button>
         <button type="button" id="clear" onclick="clearSearchFilter();">Clear</button><br><br>
@@ -42,7 +40,8 @@
         <button type="button">Clear Filters</button><br><br>-->
         <input type="submit" value="Apply Filters" /><br><br>
         {% if not user %}
-        <p>To use more filters, please <a href="login.html">log in</a> or <a href="signup.html">sign up</a> for an account.</p>
+        <p>To add preferences to your search, please <a href="login.html">log in</a> or
+            <a href="signup.html">sign up</a> for an account.</p>
         {% else %}
         <input type="submit" value="Edit Preferences" name="prefs" />
         {% endif %}
