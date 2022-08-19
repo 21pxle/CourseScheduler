@@ -563,7 +563,7 @@ def brute_force(lst, alpha):
     # Step 5
     result = dict(itertools.takewhile(lambda x: x[1] >= 0.95 * max_score, possibilities))
     sections = [(all_sections[section_id] for section_id in sorted(genome)) for genome in result.keys()]
-    return [(tuple(genome), round(score, 1)) for genome, score in zip(sections, result.values())]
+    return [(tuple(genome), f"{score:0.1f}") for genome, score in zip(sections, result.values())]
 
 
 def crossover(genome1, genome2):
@@ -769,7 +769,7 @@ def genetic_algorithm(selected_courses, alpha):
     result, rules = [], [[int(x) for (x,) in Section.query.with_entities(Section.id)
                          .filter(Section.course_id == course).all()] for course in selected_courses]
     # Equivalently: possibilities = np.prod([len(rule) for rule in rules])
-    possibilities = np.prod(map(len, rules))
+    possibilities = np.prod(list(map(len, rules)))
 
     # Step 2
     if possibilities < 250000:
@@ -827,7 +827,7 @@ def genetic_algorithm(selected_courses, alpha):
     scoreboard = sorted(list(zip(map(tuple, population), scores)), key=lambda x: x[1], reverse=True)
     max_score = scoreboard[0][1]
     result = dict(itertools.takewhile(lambda x: x[1] >= 0.95 * max_score, scoreboard))
-    return [(genome, round(score, 1)) for genome, score in zip([Section.query.filter(Section.id.in_(genome))
+    return [(genome, f"{score:0.1f}") for genome, score in zip([Section.query.filter(Section.id.in_(genome))
                                                                .order_by(Section.id.asc()).all()
                                                                 for genome in result.keys()], list(result.values()))]
 
