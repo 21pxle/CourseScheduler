@@ -1,10 +1,1469 @@
-Title,Category,Abbreviation
-General Chemistry III - Lecture,CHEM,CHEM 103
-General Chemistry III - Lab,CHEM,CHEM 103
-General Chemistry III - Recitation,CHEM,CHEM 103
-Techniques of Speaking,COM,COM 230
-Business Communication,COM,COM 270
-Advanced Programming Tools and Techniques,CS,CS 265
-Mathematical Foundations of Computer Science,CS,CS 270
-Intro to Software Engineering and Development,SE,SE 181
-Exam Period,EXAM,EXAM 080
+Category	Title	Abbreviation
+AADM	Overview of the Arts - Lecture	AADM 505
+AADM	Creative Enterprise and Innovation - Lecture	AADM 520
+AADM	Political Activism in the Arts - Lecture	AADM 757
+AADM	Research Design in the Arts - Lecture	AADM 785
+AAML	Legal and Ethical Issues in Arts and Culture - Lecture	AAML 525
+AAML	Marketing & Engagement in Arts and Cultural Orgs. - Lecture	AAML 560
+AAML	"Leadership, Strategy & Planning in Arts and Cult. - Lecture"	AAML 680
+ACCT	Accounting for Professionals - Lecture	ACCT 110
+ACCT	Financial Accounting Foundations - Lecture	ACCT 115
+ACCT	Managerial Accounting Foundations - Lecture	ACCT 116
+ACCT	Financial Reporting I - Lecture	ACCT 321
+ACCT	Financial Reporting III - Lecture	ACCT 323
+ACCT	Advanced Accounting - Lecture	ACCT 329
+ACCT	Principles of Auditing - Lecture	ACCT 341
+ACCT	Essentials of Financial Reporting - Lecture	ACCT 510
+ACCT	Applied Research Methods in Accounting - Seminar	ACCT 912
+AE	Architectural Illumination and Electrical Systems - Lecture	AE 340
+AE	Architectural Engineering Design I - Lecture	AE 390
+AE	Responsive Urban Environments - Lecture	AE 440
+AE	Building Envelope Systems - Lecture	AE 444
+AE	Data Acquisition and Analytics in Built Environment - Lecture	AE 455
+AE	Comfort Analysis and Indoor Air Quality - Lecture & Recitation	AE 550
+AFAS	Introduction to Africana Studies - Lecture	AFAS 101
+AFAS	Silences in African History - Lecture	AFAS 230
+AFAS	Politics of Hip Hop - Lecture	AFAS 301
+AFAS	Adichie and Dangarembga - Special Topics-Lecture	AFAS T380
+ANIM	Foundational Tools for Animation & VFX - Lecture	ANIM 100
+ANIM	Previsualization for Animated Production - Lecture	ANIM 155
+ANIM	Animation I - Lecture	ANIM 211
+ANIM	Character Animation I - Lecture	ANIM 314
+ANIM	Organic Modeling II - Lecture	ANIM 347
+ANIM	Intro to Pipeline Technical Direction - Special Topics-Lecture	ANIM T380
+ANIM	Procedural Animation in Houdini - Special Topics-Lecture	ANIM T380
+ANTH	Introduction to Cultural Diversity - Lecture	ANTH 101
+ANTH	Anthropology of Immigration - Lecture	ANTH 250
+ARBC	Arabic I - Lecture	ARBC 101
+ARBC	Arabic II - Lecture	ARBC 102
+ARBC	Arabic IV - Lecture	ARBC 201
+ARCH	Foundation Design I - Studio-Lecture	ARCH 107
+ARCH	Architecture and Society I - Lecture	ARCH 141
+ARCH	Architecture and Society III - Lecture	ARCH 143
+ARCH	Architecture Studio 1A - Studio-Lecture	ARCH 181
+ARCH	Studio 2-AE - Studio-Lecture	ARCH 192
+ARCH	Architectural Representation I - Studio-Lecture	ARCH 211
+ARCH	Materials & Methods I - Lecture	ARCH 221
+ARCH	Architectural Representation IV - Studio-Lecture	ARCH 224
+ARCH	Structural Systems I - Lecture	ARCH 251
+ARCH	Architecture Studio 2A - Studio-Lecture	ARCH 281
+ARCH	Building Systems I - Lecture	ARCH 291
+ARCH	Sustainable Built Environment II - Lecture	ARCH 320
+ARCH	Materials & Methods IV - Lecture	ARCH 324
+ARCH	Professional Practice I - Lecture	ARCH 335
+ARCH	Theories of Architecture I - Lecture	ARCH 341
+ARCH	Contemporary Architecture - Lecture	ARCH 350
+ARCH	Structural Systems IV - Lecture	ARCH 354
+ARCH	Architecture Studio 3A - Studio-Lecture	ARCH 381
+ARCH	Building Systems IV - Lecture	ARCH 394
+ARCH	Architecture Studio 4A - Studio-Lecture	ARCH 481
+ARCH	Architecture Studio 5A - Studio-Lecture	ARCH 487
+ARCH	Senior Project I - Thesis	ARCH 493
+ARCH	Community Engagement & Design - Special Topics-Lecture	ARCH T380
+ARCH	Furniture Making - Special Topics	ARCH T480
+ARCH	Design: Making and Disruption - Special Topics-Lecture	ARCH T480
+ARCH	Design Problem Solving - Special Topics-Lecture	ARCH T480
+ARTH	History of Art I - Lecture	ARTH 101
+ARTH	History of Art II - Lecture	ARTH 102
+ARTH	History of Art III - Lecture	ARTH 103
+ARTH	History of Modern Design - Lecture	ARTH 300
+ARTH	Asian Art and Culture - Lecture	ARTH 301
+ARTH	Global Material Culture - Lecture	ARTH 331
+ARTH	History of Costume I: Preclassical to 1800 - Lecture	ARTH 335
+ARTH	History of Costume III: 1920 to Present - Lecture	ARTH 337
+ARTH	Theories of Architecture I - Special Topics-Lecture	ARTH T380
+ARTH	Contemporary Architecture - Special Topics-Lecture	ARTH T380
+BACS	Behavioral Disorders - Lecture	BACS 210
+BACS	Introduction to Addictive Disorders - Lecture	BACS 234
+BACS	Psychiatric Rehabilitation Principles and Practices - Lecture	BACS 236
+BACS	Group Counseling I - Lecture	BACS 301
+BACS	Cognitive and Behavioral Counseling I - Lecture	BACS 304
+BACS	Child Psychopathology - Lecture	BACS 350
+BIO	"Applied Cells, Genetics & Physiology - Lecture"	BIO 100
+BIO	"Cells, Genetics & Physiology - Lecture"	BIO 107
+BIO	"Cells, Genetics and Physiology Laboratory - Lab"	BIO 108
+BIO	Cells and Biomolecules - Recitation/Discussion	BIO 131
+BIO	Cells and Biomolecules - Lecture	BIO 131
+BIO	Cells and Biomolecules Lab - Lab	BIO 134
+BIO	SEA-PHAGES I - Lab	BIO 142
+BIO	Human Physiology I - Recitation/Discussion	BIO 201
+BIO	Human Physiology I - Lecture	BIO 201
+BIO	Applications in Biology I - Lecture	BIO 207
+BIO	"Cell, Molecular & Developmental Biology I - Lecture"	BIO 209
+BIO	"Cell, Molecular & Developmental Biology I - Recitation/Discussion"	BIO 209
+BIO	Principles of Cell Biology - Recitation/Discussion	BIO 214
+BIO	Principles of Cell Biology - Lecture	BIO 214
+BIO	Techniques in Molecular Biology - Lab & Recitation	BIO 219
+BIO	Essential Microbiology - Lecture	BIO 220
+BIO	Microbiology - Lecture	BIO 221
+BIO	Microbiology Laboratory - Lab	BIO 222
+BIO	Microbiology for Health Professionals - Lab	BIO 226
+BIO	Microbiology for Health Professionals - Lecture	BIO 226
+BIO	Biochemistry Laboratory - Lab	BIO 306
+BIO	Biochemistry - Recitation/Discussion	BIO 311
+BIO	Biochemistry - Lecture	BIO 311
+BIO	Biology of Cancer - Lecture	BIO 318
+BIO	Neuroscience: From Cells to Circuits - Lecture	BIO 348
+BIO	Developmental Biology - Lecture	BIO 373
+BIO	Developmental Biology Lab - Lab	BIO 374
+BIO	Gross Anatomy I - Lecture	BIO 386
+BIO	Gross Anatomy I Laboratory - Lab	BIO 387
+BIO	Structure and Function of Biomolecules - Lecture	BIO 404
+BIO	Structure and Function of Biomolecules - Recitation/Discussion	BIO 404
+BIO	Immunology - Lecture	BIO 426
+BIO	Human Genetics - Lecture	BIO 444
+BIO	Biology of Neuron Function - Lecture	BIO 462
+BIO	Pathophysiology - Lecture	BIO 468
+BIO	Seminar in Biological Sciences - Seminar	BIO 471
+BIO	Biochemistry I - Lecture	BIO 500
+BIO	Readings and Critical Thinking in Biology - Lecture	BIO 740
+BIO	Graduate Research Seminar - Seminar	BIO 864
+BLAW	Business Law I - Lecture	BLAW 201
+BLAW	Business Law II - Lecture	BLAW 202
+BLAW	Real Estate Law - Lecture	BLAW 330
+BLAW	International Business Law - Lecture	BLAW 340
+BLAW	Entrepreneurial Law - Lecture	BLAW 346
+BLAW	White Collar Crime - Lecture	BLAW 348
+BLAW	Employment Law - Lecture	BLAW 358
+BMES	Introduction to BMES Design I: Defining Medical Problems - Lecture	BMES 101
+BMES	Introduction to BMES Design I: Defining Medical Problems - Lab	BMES 101
+BMES	Biomedical Engineering Freshman Seminar I - Lecture	BMES 124
+BMES	Programming and Modeling for Biomedical Engineers ll - Integrated Lecture & Lab	BMES 202
+BMES	Laboratory I: Experimental Biomechanics - Lab	BMES 301
+BMES	Laboratory I: Experimental Biomechanics - Lecture	BMES 301
+BMES	Laboratory IV: Ultrasound Images - Lecture & Lab	BMES 304
+BMES	Experimental Design in Biomedical Research - Lecture	BMES 315
+BMES	Mechanics of Biological Systems - Lecture	BMES 345
+BMES	Computational Bioengineering - Recitation/Discussion	BMES 375
+BMES	Computational Bioengineering - Lecture	BMES 375
+BMES	Junior Design Seminar I - Lecture	BMES 381
+BMES	Biomedical Instrumentation I - Lecture	BMES 391
+BMES	Biosensors I - Lecture & Recitation	BMES 401
+BMES	Entrepreneurship for BMES - Lecture	BMES 409
+BMES	Biomedical Imaging Systems I: Images - Lecture	BMES 421
+BMES	Neural Aspects of Posture and Locomotion - Lecture	BMES 430
+BMES	Biomedical Systems and Signals - Lecture	BMES 432
+BMES	Introduction to Biodynamics - Lecture	BMES 440
+BMES	Biomechanics I: Introduction to Biomechanics - Lab	BMES 441
+BMES	Biomechanics I: Introduction to Biomechanics - Lecture	BMES 441
+BMES	Medical Technology Innovation I - Lecture	BMES 455
+BMES	Biomaterials I - Lecture	BMES 460
+BMES	Biomaterials I - Lab	BMES 460
+BMES	Cellular and Molecular Foundations of Tissue Engineering - Lecture	BMES 471
+BMES	Neuroengineering I: Neural Signals - Lecture	BMES 477
+BMES	Senior Thesis: Capstone Design Experience - Lecture	BMES 490
+BMES	Senior Design Project I - Lecture	BMES 491
+BMES	Medical Sciences I - Lecture	BMES 501
+BMES	Mathematics for Biomedical Sciences I - Lecture	BMES 505
+BMES	Entrepreneurship for Biomedical Engineering and Science - Lecture	BMES 509
+BMES	Biomedical Statistics - Lecture	BMES 510
+BMES	Biomedical Ethics and Law - Lecture	BMES 538
+BMES	Biocomputational Languages - Lecture	BMES 546
+BMES	Advanced Biocomputational Languages - Lecture	BMES 550
+BMES	Medical Technology Innovation I: Devices - Lecture	BMES 585
+BMES	Medical Imaging Systems I - Lecture	BMES 621
+BMES	Tissue Engineering I - Lecture	BMES 631
+BMES	Biomedical Mechanics I - Lab	BMES 641
+BMES	Biomedical Mechanics I - Lecture	BMES 641
+BMES	Biosimulation I - Lecture	BMES 672
+BMES	Neural Signals - Lecture	BMES 710
+BMES	Neural Aspects of Posture and Locomotion I - Lecture	BMES 722
+BMES	Medical Instrumentation - Lecture	BMES 821
+BMES	Seminar - Seminar	BMES 864
+BMES	Graduate Research Talks - Seminar	BMES 870
+BMES	WACE Global Collaborative Proj - Special Topics-Lecture	BMES T380
+BMES	Design for POC Additive Manfu. - Special Topics-Lecture	BMES T580
+BSAN	Programming for Data Analytics - Lecture	BSAN 360
+BSAN	Business Analytics Senior Project - Lecture	BSAN 460
+BSAN	Business Analytics Capstone Project - Lecture	BSAN 710
+BST	Introduction to Statistical Computing - Lecture	BST 555
+BST	Survival Data Analysis - Lecture	BST 557
+BST	Applied Multivariate Analysis - Lecture	BST 558
+BST	Statistical Consulting - Lecture	BST 567
+BST	Linear Statistical Models - Recitation/Discussion	BST 569
+BST	Linear Statistical Models - Lecture	BST 569
+BST	Introduction to Biostatistics - Lecture	BST 571
+BST	Research Skills in Biostatistics I - Lecture	BST 826
+BST	Readings in Biostatistics - Special Topics-Lecture	BST T880
+BUSN	Foundations of Business I - Lecture & Recitation	BUSN 101
+BUSN	Foundations of Business II - Lecture & Recitation	BUSN 102
+BUSN	Foundations for Business - Lecture	BUSN 111
+BUSN	Foundations of Career & Professional Development - Lecture	BUSN 614
+CAEE	"Introduction to Civil, Architectural & Environmental Engineering - Lab"	CAEE 202
+CAEE	"Introduction to Civil, Architectural & Environmental Engineering - Lecture"	CAEE 202
+CAEE	Geologic Principles for Infrastructure & Environmental Engineering - Lecture	CAEE 212
+CAEE	Geologic Principles for Infrastructure & Environmental Engineering - Lab	CAEE 212
+CAEE	Statistical Analysis of Engineering Systems - Lab	CAEE 361
+CAEE	Statistical Analysis of Engineering Systems - Lecture	CAEE 361
+CATX	Foundations of Creative Arts Therapies - Lecture	CATX 501
+CATX	Family Systems and Adult and Older Adult Assessment and Treatment Planning - Lecture	CATX 528
+CATX	Art Therapy Group Supervision I - Seminar	CATX 537
+CATX	Clinical Musicianship I - Lecture	CATX 570
+CATX	Theories and Methods in Music Therapy with Children and Adolescents - Lecture	CATX 575
+CATX	"Media, Materials and Process in Art Therapy - Lecture"	CATX 631
+CATX	Advanced Art Therapy Group Supervision I - Seminar	CATX 637
+CATX	"Advanced Topics in Music Therapy and Counseling I: Music, Imagery and the Therapeutic Relationship - Lecture"	CATX 673
+CATX	Interdisciplinary Seminar I - Seminar	CATX 703
+CATX	Philosophy and Theory in Research - Seminar	CATX 712
+CATX	Studio Based Artistic Inquiry - Seminar	CATX 716
+CATX	Teaching Practicum - Practicum	CATX 812
+CCM	Contemporary Social Theory - Lecture	CCM 701
+CCM	"Research Methods in Communication, Culture and Media - Lecture"	CCM 704
+CCM	Digital Subjectivities - Lecture	CCM 745
+CCM	Political Economy of Media - Lecture	CCM 750
+CFTP	Introduction to Systems Theory - Lecture	CFTP 500
+CFTP	Legal and Ethical Implications in Couple and Family Therapy Practice - Lecture	CFTP 522
+CFTP	Family Assessment and Evaluation - Lecture	CFTP 524
+CFTP	Clinical Practicum/Supervision IV - Practicum	CFTP 533
+CFTP	Clinical Practicum/Supervision V - Practicum	CFTP 534
+CFTP	Clinical Readiness Seminar - Seminar	CFTP 539
+CFTP	Clinical Practicum/Supervision VIII - Practicum	CFTP 544
+CFTP	Group Supervision Practicum I - Practicum	CFTP 561
+CFTP	Group Supervision Practicum II - Practicum	CFTP 562
+CFTP	Capstone Project I - Seminar	CFTP 770
+CHE	Material and Energy Balances I - Lecture & Recitation	CHE 211
+CHE	Computational Methods in Chemical Engineering I - Lecture & Recitation	CHE 220
+CHE	Chemical Engineering Thermodynamics II - Lecture & Recitation	CHE 330
+CHE	Separation Processes - Lecture & Recitation	CHE 331
+CHE	Fluid Mechanics - Lecture & Recitation	CHE 341
+CHE	Statistics and Design of Experiments - Lecture & Recitation	CHE 350
+CHE	Chemical Kinetics and Reactor Design - Lecture & Recitation	CHE 362
+CHE	Chemical Engineering Laboratory III - Lab	CHE 453
+CHE	Chemical Engineering Laboratory III - Lecture	CHE 453
+CHE	Process Dynamics and Control - Lecture & Recitation	CHE 464
+CHE	Process Design I - Recitation/Discussion	CHE 471
+CHE	Process Design I - Lecture	CHE 471
+CHE	Mathematical Methods in Chemical Engineering - Lecture	CHE 502
+CHE	Chemical Engineering Thermodynamics I - Lecture	CHE 513
+CHEC	Physical Chemistry and Applications III - Lecture & Recitation	CHEC 353
+CHEM	General Chemistry I - Recitation/Discussion	CHEM 101
+CHEM	General Chemistry I - Lab	CHEM 101
+CHEM	General Chemistry I - Lecture	CHEM 101
+CHEM	General Chemistry III - Lab	CHEM 103
+CHEM	General Chemistry III - Recitation/Discussion	CHEM 103
+CHEM	General Chemistry III - Lecture	CHEM 103
+CHEM	Health Chemistry I - Recitation/Discussion	CHEM 108
+CHEM	Health Chemistry I - Lecture	CHEM 108
+CHEM	Majors Chemistry I - Recitation/Discussion	CHEM 121
+CHEM	Majors Chemistry I - Lab	CHEM 121
+CHEM	Majors Chemistry I - Lecture	CHEM 121
+CHEM	Applied Chemistry - Lab	CHEM 151
+CHEM	Quantitative Analysis - Recitation/Discussion	CHEM 230
+CHEM	Quantitative Analysis - Lecture	CHEM 230
+CHEM	Quantitative Analysis Laboratory - Lab	CHEM 231
+CHEM	Organic Chemistry I - Lecture	CHEM 241
+CHEM	Organic Chemistry II - Lecture	CHEM 242
+CHEM	Organic Chemistry III - Lecture	CHEM 243
+CHEM	Organic Chemistry Laboratory I - Lab	CHEM 244
+CHEM	Organic Chemistry for Majors I - Lecture	CHEM 246
+CHEM	Organic Chemistry for Majors I - Lab	CHEM 246
+CHEM	Organic Chemistry for Majors I - Recitation/Discussion	CHEM 246
+CHEM	Organic Chemistry for Majors III - Lecture	CHEM 249
+CHEM	Organic Chemistry for Majors III - Recitation/Discussion	CHEM 249
+CHEM	Organic Chemistry for Majors III - Lab	CHEM 249
+CHEM	Thermodynamics and Kinetics - Lecture	CHEM 253
+CHEM	Physical Chemistry IV - Lecture	CHEM 355
+CHEM	Physical Chemistry Laboratory - Lab	CHEM 356
+CHEM	Physical Chemistry Laboratory - Lecture	CHEM 356
+CHEM	Physical Chemistry Laboratory II - Lab	CHEM 358
+CHEM	Physical Chemistry Laboratory II - Lecture	CHEM 358
+CHEM	Chemical Information Retrieval - Lecture	CHEM 367
+CHEM	Inorganic Chemistry I - Lecture	CHEM 421
+CHEM	Analytical Chemistry I - Lecture	CHEM 430
+CHEM	Synthetic Polymer Chemistry - Lecture	CHEM 465
+CHEM	Quantum Chemistry Of Molecules I - Lecture	CHEM 555
+CHEM	Polymer Chemistry I - Lecture	CHEM 561
+CHEM	Chemistry Research Seminar - Lecture	CHEM 865
+CHIN	Chinese I - Lecture	CHIN 101
+CHIN	Chinese II - Lecture	CHIN 102
+CHIN	Chinese III - Lecture	CHIN 103
+CHIN	Chinese IV - Lecture	CHIN 201
+CHP	Behavior and Social Change Theories - Lecture	CHP 500
+CHP	Drug Use and Public Health - Lecture	CHP 650
+CHP	Process Monitoring and Outcomes Evaluation for Community Health Programs - Lecture	CHP 673
+CHP	Theory & Practice of Community Health & Prevention I - Lecture	CHP 801
+CHP	Measuring Health - Lecture	CHP 808
+CHP	Dissertation Seminar I - Dissertation	CHP 901
+CHP	Doctoral Seminar in Community Health and Prevention - Seminar	CHP 904
+CI	Computing and Informatics Design I - Lecture	CI 101
+CI	Computing and Informatics Design I - Lab	CI 101
+CI	Computing and Informatics Design II - Lab	CI 102
+CI	Computing and Informatics Design II - Lecture	CI 102
+CI	CCI Transfer Student Seminar - Lecture	CI 120
+CI	Senior Project I - Lecture	CI 491
+CIT	Foundations of Complementary and Integrative Therapies - Lecture	CIT 502
+CIT	Integrative Health Strategies II - Lecture	CIT 697
+CIT	Integrative Health Strategies II - LectureI	CIT 697
+CIT	Graduate Seminar - Seminar I	CIT 698
+CIT	Graduate Seminar - Seminar	CIT 698
+CIVC	Introduction to Civic Engagement - Lecture	CIVC 101
+CIVE	Engineering Economic Analysis - Lecture	CIVE 240
+CIVE	Structural Analysis I - Lab	CIVE 302
+CIVE	Structural Analysis I - Lecture	CIVE 302
+CIVE	Soil Mechanics I - Lab	CIVE 312
+CIVE	Soil Mechanics I - Lecture	CIVE 312
+CIVE	Introduction to Fluid Flow - Lecture	CIVE 320
+CIVE	First Principles of Structural Design - Lecture	CIVE 400
+CIVE	Hydrology - Lecture	CIVE 430
+CIVE	Wood and Timber Design - Lecture	CIVE 512
+CIVE	Advanced Concrete Technology - Lecture	CIVE 520
+CIVE	Advanced Foundation Engineering - Lecture	CIVE 531
+CIVE	Transportation Planning and Capacity - Lecture	CIVE 585
+CIVE	Advanced Mechanics of Materials - Lecture	CIVE 605
+CIVE	Advanced Soil Mechanics - Lecture	CIVE 632
+CIVE	Geosynthetics in Civil Infrastructure - Lecture	CIVE 650
+CIVE	Open Channel Hydraulics - Lecture	CIVE 664
+CIVE	Advanced Structural Analysis I - Lecture	CIVE 701
+CIVE	Adv Foundation Engineering - Special Topics-Lecture	CIVE T480
+CJS	Freshman Seminar in Crime and Justice - Lecture	CJS 100
+CJS	Introduction to Criminal Justice - Lecture	CJS 101
+CJS	Criminology - Lecture	CJS 200
+CJS	Seminar in Justice Informatics - Lecture	CJS 240
+CJS	Research Methods & Analytics I - Lecture	CJS 250
+CJS	Places of Justice - Lecture	CJS 262
+CJS	Introduction to Computer Crime - Lecture	CJS 276
+CJS	Crime and Public Policy - Lecture	CJS 290
+CJS	Advanced Criminological Theorizing - Lecture	CJS 302
+CJS	Applications of Justice - Lecture	CJS 303
+CJS	Crime Mapping I Using Geographic Information Systems - Lecture	CJS 330
+CJS	Technology and the Justice System - Lecture	CJS 366
+CJS	Sentencing - Lecture	CJS 376
+CMGT	Introduction to Construction Management - Lecture	CMGT 101
+CMGT	Building Materials and Construction Methods I - Lecture	CMGT 161
+CMGT	Economic Planning for Construction - Lecture	CMGT 240
+CMGT	Understanding Construction Drawings - Lecture	CMGT 263
+CMGT	Introduction to Sustainability in Construction - Lecture	CMGT 355
+CMGT	Contracts And Specifications I - Lecture	CMGT 361
+CMGT	Contracts and Specifications II - Lecture	CMGT 362
+CMGT	Estimating I - Lecture	CMGT 363
+CMGT	Structural Aspects in Construction I - Lecture	CMGT 371
+CMGT	Management of Field Operations - Lecture	CMGT 450
+CMGT	Value Engineering - Lecture	CMGT 463
+CMGT	Techniques of Project Control - Lecture	CMGT 467
+CMGT	Senior Capstone I - Lecture	CMGT 491
+COM	Human Communication - Lecture	COM 101
+COM	Principles of Communication - Lecture	COM 111
+COM	Mass Media and Society - Lecture	COM 150
+COM	Introduction to Journalism - Lecture	COM 160
+COM	Public Relations Principles and Theory - Lecture	COM 181
+COM	Constructions of Crime & Priso - Lecture	COM 200
+COM	Theory and Models of Communication - Lecture	COM 210
+COM	Qualitative Research Methods - Lecture	COM 220
+COM	Quantitative Research Methods in Communication - Lecture	COM 221
+COM	Interpersonal Communication - Lecture	COM 222
+COM	Techniques of Speaking - Lecture	COM 230
+COM	New Technologies In Communication - Lecture	COM 240
+COM	Reputation Management in Public Relations - Lecture	COM 248
+COM	"Fans, Fandom, and Audiences - Lecture"	COM 255
+COM	Business Communication - Lecture	COM 270
+COM	Sports and the Mass Media - Lecture	COM 290
+COM	Technical Communication - Lecture	COM 310
+COM	Digital Publishing - Lecture	COM 335
+COM	Strategic International Communication - Lecture	COM 360
+COM	Event Planning - Lecture	COM 363
+COM	What's So Funny About Peace? - Lecture	COM 400
+COM	Senior Project in Communication I - Lecture	COM 491
+COM	Senior Project in Communication II - Lecture	COM 492
+COM	Organizational Communication in Project Management - Lecture	COM 574
+COM	Ethics for Professional Communication - Lecture	COM 613
+CS	Computer Science Principles - Lecture	CS 150
+CS	Computer Science Principles - Lab	CS 150
+CS	Introduction to Computer Science - Lab	CS 164
+CS	Introduction to Computer Science - Lecture	CS 164
+CS	Computer Programming I - Lab	CS 171
+CS	Computer Programming I - Lecture	CS 171
+CS	Computer Programming II - Lab	CS 172
+CS	Computer Programming II - Lecture	CS 172
+CS	Data Structures - Lecture	CS 260
+CS	Advanced Programming Tools and Techniques - Integrated Lecture & Lab	CS 265
+CS	Mathematical Foundations of Computer Science - Lecture & Lab	CS 270
+CS	Algorithms and Analysis - Lecture	CS 277
+CS	Systems Architecture - Lecture	CS 281
+CS	Systems Architecture - Lab	CS 281
+CS	Serious Game Development - Lecture	CS 341
+CS	Computer Game Design and Development - Lecture	CS 345
+CS	Concurrent Programming - Lecture	CS 361
+CS	Web Development - Lecture	CS 375
+CS	Software Security - Lecture	CS 377
+CS	Artificial Intelligence - Lecture	CS 380
+CS	Game AI Development - Lecture	CS 387
+CS	Computer Graphics - Lecture	CS 430
+CS	Data Structures and Algorithms I - Lecture	CS 457
+CS	Data Structures and Algorithms I - Recitation/Discussion	CS 457
+CS	Database Systems - Lecture	CS 461
+CS	"Computer Networks: Theory, Applications and Programming - Lecture"	CS 472
+CS	Introduction to Programming - Lecture	CS 501
+CS	Systems Basics - Lecture	CS 503
+CS	Introduction to Artificial Intelligence - Lecture	CS 510
+CS	High Performance Computing - Lecture	CS 540
+CS	Programming Foundations - Lecture	CS 570
+CS	Privacy - Lecture	CS 590
+CS	Artificial Intelligence and Machine Learning Capstone I - Lecture	CS 591
+CS	Game Artificial Intelligence - Lecture	CS 611
+CS	Machine Learning - Lecture	CS 613
+CSDN	Introduction to Multi-Disciplinary Methods - Lecture	CSDN 101
+CSDN	Custom-Designed Major Proj I - Recitation/Discussion	CSDN 304
+CSDN	Custom-Designed Major Project II - Recitation/Discussion	CSDN 305
+CSDN	Custom-Designed Major Project III - Recitation/Discussion	CSDN 306
+CT	Network Administration I - Lecture	CT 140
+CT	Information Technology Security I - Lecture	CT 201
+CT	Introduction to the Digital Environment - Lecture	CT 500
+CT	"Disaster Recovery, Continuity Planning and Digital Risk Assessment - Lecture"	CT 610
+CTCN	Human Psychological Development - Lecture	CTCN 501
+CTCN	Clinical Practicum & Practicum Seminar I - Seminar & Clinical	CTCN 511
+CTCN	Clinical Practicum & Practicum Supervision I - Clinical	CTCN 512
+CTCN	Therapy Relationship Skills I - Lecture	CTCN 552
+CTCN	Movement Observation I - Lecture	CTCN 554
+CTCN	Theory and Practice II: Adults - Lecture	CTCN 558
+CTCN	Movement Perspectives in Human Development - Lecture	CTCN 563
+CTCN	Introduction to Behavioral Research - Lecture	CTCN 601
+CTCN	Group Dynamics in Counseling and Art Therapy - Lecture	CTCN 606
+CTCN	Group Dynamics in Counseling and Music Therapy - Lecture	CTCN 608
+CTCN	Clinical Internship & Internship Seminar I - Seminar & Clinical	CTCN 611
+CTCN	Clinical Internship & Internship Supervision I - Seminar & Clinical	CTCN 612
+CTCN	"Crisis, Trauma, and the Body - Lecture"	CTCN 654
+CTCN	Dance/Movement Therapy Assessment - Lecture	CTCN 657
+CULA	Culinary Fundamentals - Lecture & Lab	CULA 115
+CULA	Techniques and Traditions II - Lecture & Lab	CULA 121
+CULA	Global Cuisine Studio - Lecture & Lab	CULA 303
+CULA	Butchery Laboratory - Lab	CULA 316
+CULA	Culture and Gastronomy I - Lecture & Lab	CULA 405
+CULA	Senior Design Project I - Lecture & Lab	CULA 421
+CULA	The Kitchen Garden: Fall - Lecture	CULA 427
+CW	Professional Residency in New York - Seminar	CW 601
+CW	Writing Pedagogy - Seminar	CW 654
+DANC	Yoga - Lecture	DANC 102
+DANC	Ballet Technique I - Studio-Lecture	DANC 104
+DANC	Modern Dance Technique I - Studio-Lecture	DANC 105
+DANC	Jazz Dance Technique I - Studio-Lecture	DANC 106
+DANC	Hip-Hop Dance Technique I - Studio-Lecture	DANC 107
+DANC	Dance Improvisation I - Studio-Lecture	DANC 108
+DANC	African Dance Technique I - Studio	DANC 109
+DANC	Dance Practicum in Performance - Practice	DANC 131
+DANC	Dance Practicum in Production - Practice	DANC 132
+DANC	Dance Practicum in Choreography - Performance	DANC 133
+DANC	Ballet Technique II - Studio-Lecture	DANC 204
+DANC	Modern Dance Technique II - Studio-Lecture	DANC 205
+DANC	Dance Appreciation - Lecture	DANC 215
+DANC	Introduction to Laban Movement Analysis - Lecture	DANC 216
+DIGM	Overview of Digital Media - Lecture	DIGM 105
+DIGM	Explorations in New Media - Lecture	DIGM 451
+DIGM	Seminar: The Future of Digital Media - Lecture	DIGM 475
+DIGM	Digital Media Senior Project - Studio-Lecture	DIGM 490
+DIGM	Digital Media Senior Project Studio - Studio	DIGM 491
+DIGM	"New Media: History, Theory and Methods - Lecture"	DIGM 501
+DIGM	Interactivity I - Lecture	DIGM 520
+DIGM	Thesis Development - Thesis	DIGM 680
+DIGM	Intro to Blockchain and NFTs - Special Topics-Lecture	DIGM T480
+DIGM	Intro Pipeline Tech Direction - Special Topics-Lecture	DIGM T580
+DIGM	Artifical Intelligence-Gaming - Special Topics-Lecture	DIGM T580
+DIGM	Intro to Virtual Production - Special Topics-Lecture	DIGM T580
+DSCI	Data Acquisition and Pre-Processing - Lecture	DSCI 511
+DSCI	Data Science Capstone I - Lecture	DSCI 591
+DSCI	Applied Machine Learning for Data Science - Lecture	DSCI 631
+DSMR	Introduction to the Fashion Industry - Lecture	DSMR 103
+DSMR	Computer Design for Design and Merchandising - Lecture	DSMR 211
+DSMR	Retail Operations - Lecture	DSMR 231
+DSMR	Merchandising Operations & Management - Lecture	DSMR 310
+DSMR	Visual Merchandising - Lecture	DSMR 311
+DSMR	Media Merchandising I - Lecture	DSMR 315
+DSMR	Fashion Product Development - Lecture	DSMR 333
+DSMR	Merchandising Analytics - Lecture	DSMR 464
+DSMR	Senior Problem in Design and Merchandising - Lecture	DSMR 496
+DSRE	Technologies of Making - Lecture & Lab	DSRE 625
+DSRE	Thesis in Design Research I - Seminar	DSRE 750
+EAM	Overview of Entertainment and Arts Management - Lecture	EAM 130
+EAM	Strategic Management for Entertainment and Arts Management - Lecture	EAM 211
+EAM	Entertainment Promotion and Branding - Lecture	EAM 308
+EAM	Producing for Live Entertainment - Lecture	EAM 325
+EAM	Artist Representation and Management - Lecture	EAM 340
+EAM	"Arts, Culture and Society - Lecture"	EAM 420
+EAM	Negotiation in Arts & Entmt - Special Topics-Lecture	EAM T280
+ECE	Digital Logic Design - Lecture	ECE 200
+ECE	Digital Logic Design - Recitation/Discussion	ECE 200
+ECE	Digital Logic Design - Lab	ECE 200
+ECE	Foundations of Electric Circuits I - Recitation/Discussion	ECE 201
+ECE	Foundations of Electric Circuits I - Lab	ECE 201
+ECE	Foundations of Electric Circuits I - Lecture	ECE 201
+ECE	Foundations of Electric Circuits II - Lab	ECE 301
+ECE	Foundations of Electric Circuits II - Recitation/Discussion	ECE 301
+ECE	Foundations of Electric Circuits II - Lecture	ECE 301
+ECE	Design with Embedded Processors - Lecture	ECE 302
+ECE	Design with Embedded Processors - Lab	ECE 302
+ECE	ECE Laboratory - Lecture	ECE 303
+ECE	ECE Laboratory - Lab	ECE 303
+ECE	Remote Sensing and Control - Lecture	ECE 304
+ECE	Remote Sensing and Control - Lab	ECE 304
+ECE	Machine Learning Engineering Practicum - Lecture	ECE 310
+ECE	Introduction to Computer Organization - Lecture	ECE 350
+ECE	Probability and Data Analytics for Engineers - Recitation/Discussion	ECE 361
+ECE	Probability and Data Analytics for Engineers - Lecture	ECE 361
+ECE	Electronic Devices - Lab	ECE 370
+ECE	Electronic Devices - Lecture	ECE 370
+ECE	Fundamentals of Power and Energy - Lecture	ECE 380
+ECE	Introduction to Multimedia Forensics and Security - Lecture	ECE 434
+ECE	Introduction to VLSI Design - Lab	ECE 471
+ECE	Introduction to VLSI Design - Lecture	ECE 471
+ECE	RF Passive Networks - Lecture	ECE 481
+ECE	RF Passive Networks - Lab	ECE 481
+ECE	Pattern Recognition - Lecture	ECE 687
+ECE	Linear Systems - Special Topics-Lecture	ECE T280
+ECE	Reinforcement Learning - Special Topics-Lecture	ECE T580
+ECEC	Advanced Programming for Engineers - Lab	ECEC 201
+ECEC	Advanced Programming for Engineers - Lecture	ECEC 201
+ECEC	Introduction to Computer Networks - Lecture	ECEC 357
+ECEC	Digital Systems Design - Lecture	ECEC 661
+ECEC	Hands-on Computer Networks - Special Topics-Lecture	ECEC T580
+ECEE	Solid-State Electronics - Lecture	ECEE 520
+ECEP	Power Systems I - Lab	ECEP 411
+ECEP	Power Systems I - Lecture	ECEP 411
+ECEP	Power Electronic Converter Fundamentals - Lecture	ECEP 451
+ECEP	Power System Analysis - Lecture	ECEP 501
+ECEP	AC-DC and DC-AC Power Electronic Converters - Lecture	ECEP 671
+ECON	Principles of Microeconomics - Lecture	ECON 201
+ECON	Principles of Macroeconomics - Lecture	ECON 202
+ECON	Mathematical Models in Economics - Lecture	ECON 248
+ECON	Game Theory and Applications - Lecture	ECON 250
+ECON	Microeconomics - Lecture	ECON 301
+ECON	Macroeconomics - Lecture	ECON 321
+ECON	Economics Seminar - Seminar	ECON 322
+ECON	Economics of Happiness - Lecture	ECON 324
+ECON	Economic Ideas - Lecture	ECON 326
+ECON	Economic Development - Lecture	ECON 342
+ECON	Applied Econometrics - Lecture	ECON 350
+ECON	Experiments and Causality in Economics - Lecture	ECON 370
+ECON	Intro to Econometrics and Data Analysis - Lecture	ECON 540
+ECON	Mathematical Economics - Lecture	ECON 548
+ECON	Macroeconomic Dynamics - Lecture	ECON 925
+ECON	Applied Microeconometrics - Lecture	ECON 942
+ECON	International Trade - Lecture	ECON 960
+ECON	Game Theory - Lecture	ECON 980
+EDEX	Neurodiverse College and Career Seminar - Seminar	EDEX 101
+EDEX	Inclusive Practices - Lecture	EDEX 344
+EDSP	Professional School Psychology - Lecture	EDSP 500
+EDUC	Foundations in Education I: A Historical and Philosophical Perspective - Lecture	EDUC 101
+EDUC	First Year Seminar: A Case of Schools and Cities - Lecture	EDUC 106
+EDUC	Child Development I: Typical Development - Lecture	EDUC 120
+EDUC	Sophomore Pedagogy Seminar - Seminar	EDUC 205
+EDUC	Teaching the Middle School Child - Lecture	EDUC 223
+EDUC	Early Literacy II - Lecture	EDUC 336
+EDUC	Senior Pedagogy Seminar - Seminar	EDUC 405
+EDUC	Student Teaching Seminar I - Lecture	EDUC 409
+EDUC	Introduction to Doctoral Study in Education - Lecture	EDUC 750
+EDUC	Program Evaluation in Organizations - Lecture	EDUC 804
+EDUC	Doctoral Qualitative Research Methods and Data Analysis - Lecture & Lab	EDUC 838
+EDUC	Learning & Cognition in Education - Lecture	EDUC 848
+EDUC	Foundations of Research in Education - Lecture	EDUC 850
+EDUC	Conceptualizing PK-20+ Education - Lecture	EDUC 858
+EDUC	Power and Politics in Education - Lecture	EDUC 859
+EET	Circuit Analysis I - Integrated Lecture & Lab	EET 201
+EET	Analog Electronics I - Lecture & Lab	EET 206
+EET	Introduction to Programming for Embedded Systems - Special Topics-Lecture	EET 208
+EET	Modeling of Engineering Systems - Lecture	EET 311
+EET	PLC Fundamentals - Lecture & Lab	EET 319
+EET	Renewable Energy Systems - Lecture	EET 320
+EET	Energy Conversion - Lecture & Lab	EET 322
+EET	Electrical Systems Design - Lecture	EET 323
+EGMT	Survey of Mentorship - Lecture	EGMT 295
+EGMT	Leading and Managing Technical Workers - Lecture	EGMT 501
+EGMT	Design Thinking for Engineering Communications - Lecture	EGMT 504
+EGMT	Human Relations and Organizational Behavior - Lecture	EGMT 581
+ENGL	Composition and Rhetoric I: Inquiry and Exploratory Research - Lecture	ENGL 101
+ENGL	Composition and Rhetoric II: Advanced Research and Evidence-Based Writing - Lecture	ENGL 102
+ENGL	Composition and Rhetoric III: Themes and Genres - Lecture	ENGL 103
+ENGL	English Composition I - Lecture	ENGL 111
+ENGL	English Composition II - Lecture	ENGL 112
+ENGL	English Freshman Seminar - Seminar	ENGL 195
+ENGL	Romanticism to Modernism - Lecture	ENGL 202
+ENGL	Post-Colonial Literature - Lecture	ENGL 204
+ENGL	American Literature I - Lecture	ENGL 205
+ENGL	African American Literature - Lecture	ENGL 207
+ENGL	British Literature II - Lecture	ENGL 212
+ENGL	Readings in Fiction - Lecture	ENGL 214
+ENGL	Readings in Poetry - Lecture	ENGL 215
+ENGL	Readings in Drama - Lecture	ENGL 216
+ENGL	Freedom in Literature - Seminar	ENGL 301
+ENGL	Environmental Literature - Lecture	ENGL 302
+ENGL	Young Adult Fiction - Lecture	ENGL 304
+ENGL	Shakespeare - Lecture	ENGL 315
+ENGL	The Graphic Novel as Biography - Lecture	ENGL 323
+ENGL	Adiche and Dangaremba - Lecture	ENGL 325
+ENGL	Cold War Culture & Literature - Lecture	ENGL 360
+ENGL	Topics in Literature and Medicine - Lecture	ENGL 370
+ENGL	Jewish-American Humor - Special Topics-Lecture	ENGL T280
+ENGR	Introduction to Engineering Design & Data Analysis - Lab	ENGR 111
+ENGR	Introduction to Engineering Design & Data Analysis - Lecture & Recitation	ENGR 111
+ENGR	First-Year Engineering Design - Lab	ENGR 113
+ENGR	First-Year Engineering Design - Lecture & Recitation	ENGR 113
+ENGR	Fundamentals of Materials - Recitation/Discussion	ENGR 220
+ENGR	Fundamentals of Materials - Lecture	ENGR 220
+ENGR	Linear Engineering Systems - Lab	ENGR 231
+ENGR	Linear Engineering Systems - Lecture	ENGR 231
+ENGR	Dynamic Engineering Systems - Lab	ENGR 232
+ENGR	Dynamic Engineering Systems - Lecture	ENGR 232
+ENSS	Introduction to Environmental Studies - Lecture	ENSS 120
+ENSS	Introduction to Environmental Policy - Lecture	ENSS 283
+ENSS	Introduction to Urban Planning - Lecture	ENSS 285
+ENSS	Environmental Justice - Lecture	ENSS 346
+ENVE	Introduction to Environmental Engineering - Lecture	ENVE 300
+ENVE	Fundamentals of Environmental Biotechnology - Lecture	ENVE 316
+ENVE	Geographic Information Systems - Lecture	ENVE 455
+ENVE	Indoor Air Quality - Lecture	ENVE 465
+ENVE	Professional Environmental Engineering Practice - Lecture	ENVE 485
+ENVE	Senior Project Design I - Lecture	ENVE 491
+ENVE	Data-based Engineering Modeling - Lecture	ENVE 750
+ENVP	Cities and Climate Change - Seminar	ENVP 555
+ENVS	Introduction to Environmental Science - Lab	ENVS 101
+ENVS	Introduction to Environmental Science - Lecture	ENVS 101
+ENVS	Practical Identification of Plants and Animals - Lab	ENVS 201
+ENVS	The Watershed Approach - Lab	ENVS 203
+ENVS	Evolution - Recitation/Discussion	ENVS 212
+ENVS	Evolution - Lecture	ENVS 212
+ENVS	General Ecology - Lecture	ENVS 230
+ENVS	Environmental Science and Society - Lecture	ENVS 260
+ENVS	Physiological and Population Ecology - Lecture	ENVS 284
+ENVS	Introduction to Environmental Chemistry - Lecture	ENVS 310
+ENVS	Plant Animal Interactions - Lecture	ENVS 315
+ENVS	Molecular Ecology - Lecture	ENVS 326
+ENVS	Animal Behavior - Lecture	ENVS 364
+ENVS	Environmental Assessment - Lecture	ENVS 372
+ENVS	Chemistry of the Environment - Lecture	ENVS 401
+ENVS	Issues in Global Change I: Seminar - Lecture	ENVS 441
+ENVS	Graduate Research Seminar - Lecture	ENVS 864
+EOH	Principles and Practice of Environmental and Occupational Health - Lecture	EOH 510
+EOH	Safety in Healthcare - Lecture	EOH 564
+EOH	Occupational and Environmental Epidemiology - Lecture	EOH 625
+EOH	Public Health and Disaster Preparedness - Lecture	EOH 648
+EPI	Intermediate Epidemiology - Lecture	EPI 560
+EPI	Pathophysiologic Basis of Epidemiologic Research - Lecture	EPI 561
+EPI	Research and Practice in Epidemiology - Lecture	EPI 749
+EPI	Epidemiology PhD Seminar - Seminar	EPI 800
+EPI	Proposal Writing Seminar - Seminar	EPI 803
+EPI	"Headlines, Hashtags & Health - Special Topics-Lecture"	EPI T680
+ESCI	Foundations of Exercise Science - Lecture	ESCI 101
+ESL	Introduction to Academic Discourse - Lecture	ESL 110
+ESTM	Knowing and Learning in Mathematics and Science - Lecture	ESTM 301
+EXAM	Common Exam Period - I - Lecture	EXAM 80
+EXAM	Common Exam Period - II - Lecture	EXAM 81
+EXAM	Common Exam Period - III - Lecture	EXAM 82
+FASH	Sustainable Practice in Fashion - Lecture	FASH 200
+FASH	Fashion Drawing I - Studio-Lab	FASH 211
+FASH	Construction Skills - Lecture & Lab	FASH 241
+FASH	Visual Communication in Fashion - Lecture & Lab	FASH 309
+FASH	Computer Aided Design for Patternmaking - Studio-Lecture	FASH 315
+FASH	Technical Design for Industry - Lab	FASH 318
+FASH	Patternmaking II - Studio-Lecture & Lab	FASH 342
+FASH	Tailoring - Studio-Lecture & Lab	FASH 343
+FASH	Fashion Design IV: Collection Research & Development - Lecture & Lab	FASH 355
+FASH	Machine Knitting - Lab	FASH 450
+FASH	Intimate Apparel Design - Studio	FASH 453
+FASH	Fashion Portfolio II - Studio	FASH 464
+FASH	Business of Fashion - Lecture	FASH 466
+FASH	Materials Exploration - Lab	FASH 504
+FASH	Computer Aided Design for Patternmaking - Lab	FASH 515
+FASH	Fashion Design II: Knitwear - Lab	FASH 553
+FASH	Fashion Design IV: Collection Research & Development - Lab	FASH 555
+FASH	Intimate Apparel Design - Lab	FASH 653
+FASH	Fashion Portfolio II - Lab	FASH 664
+FASH	Art of Kirié and Kimono - Special Topics-Lecture	#N/A
+FASH	Costuming the Metaverse - Special Topics-Lab	FASH T380
+FDSC	ServSafe - Lecture	FDSC 100
+FDSC	Modernist Cuisine - Integrated Lecture & Lab	FDSC 401
+FDSC	Food Microbiology - Lecture	FDSC 450
+FDSC	Food Microbiology Laboratory - Lab	FDSC 451
+FDSC	Food Engineering - Lecture	FDSC 487
+FDSC	Seminar in Food Science - Lecture	FDSC 490
+FDSC	Food Composition & Behavior - Lecture	FDSC 506
+FIN	Financial Literacy - Lecture	FIN 150
+FIN	Introduction to Finance - Lecture	FIN 301
+FIN	Intermediate Corporate Finance - Lecture	FIN 302
+FIN	Investment Securities & Markets - Lecture	FIN 321
+FIN	Risk Management - Lecture	FIN 323
+FIN	Financial Institutions and Markets - Lecture	FIN 325
+FIN	Investment Analysis - Lecture	FIN 332
+FIN	Money and Capital Markets - Lecture	FIN 338
+FIN	Fintech - Lecture	FIN 339
+FIN	Applied Portfolio Management - Lecture	FIN 341
+FIN	Mergers & Acquisitions - Lecture	FIN 345
+FIN	Global Financial Management - Lecture	FIN 346
+FIN	Credit Risk Analysis - Lecture	FIN 440
+FMST	Film History I: Emergence - Lecture	FMST 101
+FMST	Documentary Studies - Lecture	FMST 250
+FMTV	Basic Cinematography - Lecture	FMTV 110
+FMTV	Basic Editing - Lecture	FMTV 115
+FMTV	Basic Sound - Lecture	FMTV 120
+FMTV	Portfolio Prep - Lecture	FMTV 201
+FMTV	Scene Analysis - Lecture	FMTV 202
+FMTV	Audio Production and Post - Lecture	FMTV 206
+FMTV	Intermediate Cinematography - Lecture	FMTV 210
+FMTV	Intermediate Lighting - Lecture	FMTV 211
+FMTV	DIT & Workflows - Lecture	FMTV 216
+FMTV	Intermediate Sound - Lecture	FMTV 220
+FMTV	Microbudget Film - Lecture	FMTV 245
+FMTV	Documentary Production - Lecture	FMTV 250
+FMTV	Basic Producing - Lecture	FMTV 280
+FMTV	Legal Basics for Filmmakers - Lecture	FMTV 283
+FMTV	Camera Operators Workshop - Lecture	FMTV 310
+FMTV	Advanced Camera - Lecture	FMTV 313
+FMTV	Advanced Editing - Lecture	FMTV 315
+FMTV	TV Series Production I - Lecture	FMTV 345
+FMTV	Experimental Production - Lecture	FMTV 360
+FMTV	Junior Project I - Lecture	FMTV 395
+FMTV	Career Prep - Lecture	FMTV 401
+FMTV	Senior Project II - Thesis	FMTV 496
+FMTV	The Field of TV Management - Special Topics-Lecture	FMTV T480
+FMTV	Media Law for Television Mgmt - Special Topics-Lecture	FMTV T480
+FMTV	Television Programming - Special Topics-Lecture	FMTV T480
+FREN	French I - Lecture	FREN 101
+FREN	French II - Lecture	FREN 102
+FREN	French III - Lecture	FREN 103
+FREN	French IV - Lecture	FREN 201
+FREN	French V - Lecture	FREN 202
+FREN	Advanced Writing and Speaking - Lecture	FREN 310
+FREN	West Africa to West Philly - Lecture	FREN 350
+GEO	Physical Geology - Lab	GEO 101
+GEO	Physical Geology - Lecture	GEO 101
+GEO	Advanced Field Methods in Earth Science - Lab	GEO 301
+GEO	Sedimentology and Stratigraphy - Lecture & Lab	GEO 312
+GEO	Igneous and Metamorphic Petrology - Lecture & Lab	GEO 401
+GEO	Remote Sensing - Special Topics-Lecture	GEO T480
+GEO	Current Topics in Paleontology - Special Topics	GEO T480
+GEO	Current Topics in Paleontology - Special Topics-Lecture	GEO T680
+GER	German I - Lecture	GER 101
+GER	German II - Lecture	GER 102
+GER	German IV - Lecture	GER 201
+GMAP	Game Design Lab I - Integrated Lecture & Lab	GMAP 101
+GMAP	Game User Interface Design - Integrated Lecture & Lab	GMAP 211
+GMAP	Advanced Portfolio - Lecture	GMAP 246
+GMAP	Overview of Computer Gaming - Lecture	GMAP 260
+GMAP	Game History - Lecture	GMAP 301
+GMAP	Entrepreneurial Game Studio Incubator Lab Project - Studio	GMAP 340
+GMAP	Serious Games - Integrated Lecture & Lab	GMAP 341
+GMAP	Game Development Foundations - Lecture	GMAP 345
+GMAP	Game Design from the Player¿s Perspective - Integrated Lecture & Lab	#N/A
+GMAP	Artificial Intelligence in Gaming - Lecture	GMAP 368
+GMAP	Game Development: Workshop I - Lecture	GMAP 377
+GMAP	Advanced Game Design and Production - Lecture	GMAP 395
+GRAD	The Art and Science of Teaching - Special Topics-Lecture	GRAD T580
+GST	Becoming Global: Language and Cultural Context - Lecture	GST 101
+GST	Disaster and Resilience in Puerto Rico - Lecture	GST 231
+GST	Hindu Thought - Lecture	GST T280
+GST	Global Material Culture - Special Topics-Lecture	GST T380
+GSTD	Strategies for Academic Success - Lecture	GSTD 100
+HBRW	Introduction to Hebrew I - Lecture	HBRW 101
+HBRW	Introduction to Hebrew III - Lecture	HBRW 103
+HIST	Introductory Seminar in History I - Seminar	HIST 101
+HIST	Themes in World Civilization I - Lecture	HIST 161
+HIST	United States History to 1815 - Lecture	HIST 201
+HIST	"The Great War, 1914-1918 - Lecture"	HIST 235
+HIST	History of the Holocaust - Lecture	HIST 248
+HIST	The History of Philadelphia - Lecture	HIST 276
+HIST	Technology in Historical Perspective - Lecture	HIST 285
+HIST	History of Science: Enlightenment to Modernity - Lecture	HIST 289
+HIST	Research Methods in History I - Lecture	HIST 296
+HIST	The Study of History - Lecture	HIST 301
+HIST	The Vietnam War - Lecture	HIST 338
+HIST	Disabilities in History - Lecture	HIST 341
+HIST	Venice and the Mediterranean from the Middle Ages to Napoleon - Lecture	HIST 355
+HIST	The Black Atlantic: Slave Societies of the Americas - Lecture	HIST 366
+HIST	Senior Seminar I - Lecture	HIST 490
+HIST	Silences in African History - Special Topics	HIST T280
+HMP	Health Management and Policy I - Lecture	HMP 500
+HMP	The Business of Healthcare: Advanced Healthcare Financial Management - Lecture	HMP 512
+HMP	Health Organizational Leadership - Lecture	HMP 515
+HMP	"Health Disparities: Systemic, Structural, Environmental & Economic - Lecture"	HMP 550
+HMP	EMPH Capstone I - Special Topics	HMP T580
+HNRS	What's It All About? - Lecture	HNRS 301
+HNRS	Animals in the City - Special Topics-Lecture	HNRS 302
+HNRS	Multispecies Art - Special Topics-Lecture	HNRS 302
+HNRS	Creating AgeFriendly Innovatio - Special Topics-Seminar	HNRS 303
+HNRS	Grand Challenges Innovation - Special Topics-Seminar	HNRS 304
+HNRS	Prison Reading Project - Special Topics-Seminar	HNRS 305
+HNRS	Philadelphia Rowhouse - Special Topics-Seminar	HNRS 306
+HNRS	How Do They Do It There? - Special Topics-Recitation	HNRS 307
+HNRS	Project Just(ice) Cities - Special Topics-Lecture	HNRS T380
+HNRS	Mindfulness - Special Topics	HNRS T480
+HNRS	Ayoade on Top - Special Topics	HNRS T480
+HNRS	Medicine and Art in 19c. Phila - Special Topics	HNRS T480
+HNRS	Blake's Songs: Soc Just in Art - Special Topics	HNRS T480
+HNRS	Civility - Special Topics	HNRS T480
+HRM	Introduction to the Hospitality Industry - Lecture	HRM 110
+HRM	Principles of Food-Service Management - Lecture	HRM 120
+HRM	Introduction to Tourism - Lecture	HRM 130
+HRM	Food & Beverage Customer Service - Lecture & Lab	HRM 150
+HRM	Industry Hours I - Lecture	HRM 190
+HRM	Commercial Food Production - Integrated Lecture & Lab	HRM 215
+HRM	Purchasing and Cost Controls for the Hospitality Industry - Lecture	HRM 220
+HRM	Industry Hours II - Lecture	HRM 290
+HRM	Industry Hours III - Lecture	HRM 390
+HRM	Hospitality Industry Administration - Lecture	HRM 425
+HRM	Wine Regions of the World - Lecture	HRM 435
+HRM	Spirits and Mixology - Lecture	HRM 436
+HRM	Fundamentals of Beer - Lecture	HRM 437
+HRM	Current Events in Hospitality - Special Topics-Lecture	HRM T480
+HRMT	Principles of Human Resource Administration - Lecture	HRMT 323
+HSAD	Health-Care Ethics I - Lecture	HSAD 210
+HSAD	Introduction to Health-Systems Administration - Lecture	HSAD 310
+HSAD	Interdisciplinary Health Services - Lecture	HSAD 315
+HSAD	Health-Care Law - Lecture	HSAD 322
+HSAD	Non-profits and Health Care - Lecture	HSAD 331
+HSAD	Management of Health Services - Lecture	HSAD 334
+HSAD	Jewish Hlth & Med Ethics - Special Topics-Lecture	HSAD T380
+HSAD	Perspectives on Dementia - Special Topics-Lecture	HSAD T480
+HSCI	Anatomy and Physiology III - Lab	HSCI 103
+HSCI	Anatomy and Physiology III - Lecture	HSCI 103
+HSCI	Pharmacology for Health Sciences - Lecture & Recitation	HSCI 303
+HSCI	Current Issues in Health Sciences - Seminar	HSCI 315
+HSCI	Exercise Physiology - Lecture & Lab	HSCI 325
+HSCI	Genetics and Health - Lecture	HSCI 337
+HSCI	Statistics for Health Sciences - Lecture	HSCI 345
+HSCI	Fundamentals of Toxicology - Lecture	HSCI 375
+HSCI	Developmental Anatomy - Lecture & Lab	HSCI 430
+IDM	Introduction to Web Development - Studio-Lecture	IDM 100
+IDM	User Interface Design I - Studio-Lecture	IDM 211
+IDM	User Experience Design I - Studio-Lecture	IDM 215
+IDM	Web Design I - Studio-Lecture	IDM 221
+IDM	Scripting for Interactive Digital Media II - Studio-Lecture	IDM 232
+IDM	Microinteractions - Studio-Lecture	IDM 241
+IDM	Interactive App Design I - Studio-Lecture	IDM 361
+IDM	Interactive App Design III - Studio-Lecture	IDM 363
+IDM	Interactive Digital Media Workshop I - Studio-Lecture	IDM 371
+IDM	Experimental Interactive Technologies - Studio-Lecture	IDM 381
+IDM	Storytelling for User Experience Design - Studio-Lecture	IDM 418
+IDM	Design Systems for UX - Studio-Lecture	IDM T380
+INFO	Introduction to Computing and Security Technology - Lecture	INFO 101
+INFO	Introduction to Human-Computer Interaction - Lecture	INFO 110
+INFO	Introduction to Ubiquitous Computing - Lecture	INFO 150
+INFO	Web Systems and Services I - Lecture	INFO 151
+INFO	Database Management Systems - Lecture	INFO 210
+INFO	Data Science Programming I - Lecture & Lab	INFO 212
+INFO	Social Aspects of Information Systems - Lecture	INFO 215
+INFO	Human-Centered Design Process & Methods - Lecture	INFO 310
+INFO	Data Mining Applications - Lecture	INFO 371
+INFO	Social and Collaborative Computing - Lecture	INFO 405
+INFO	Information Professionals and Information Ethics - Lecture	INFO 505
+INFO	"Users, Services, & Resources - Lecture"	INFO 506
+INFO	Information Innovation through Design Thinking - Lecture	INFO 508
+INFO	Software Development - Lecture	INFO 532
+INFO	Perspectives on Information Systems - Lecture	INFO 540
+INFO	Foundations of Data and Information - Lecture	INFO 590
+INFO	Data and Digital Stewardship - Lecture	INFO 591
+INFO	Web Systems & Architecture - Lecture	INFO 600
+INFO	Human-Computer Interaction - Lecture	INFO 608
+INFO	Designing with Data - Lecture	INFO 615
+INFO	Information Visualization - Lecture	INFO 633
+INFO	Introduction to Data Analytics - Lecture	INFO 659
+INFO	Prototyping the User Experience - Lecture	INFO 691
+INFO	Human¿Artificial Intelligence Interaction - Lecture	#N/A
+INFO	Science of Science - Lecture	INFO 800
+INFO	Foundations in Data Science - Lecture	INFO 825
+INFO	PhD Process and Practice - Seminar	INFO 871
+INTB	International Business - Lecture	INTB 200
+INTB	Multinational Corporations - Lecture	INTB 332
+INTB	International Money and Finance - Lecture	INTB 336
+INTR	Visualization II: Orthographic - Studio-Lecture	INTR 220
+INTR	Environmental Design Theory - Lecture & Lab	INTR 225
+INTR	Interior Studio I - Studio-Lecture & Lab	INTR 232
+INTR	Interior Materials - Lecture	INTR 250
+INTR	Interior Lighting - Studio-Lecture & Lab	INTR 351
+INTR	Commercial Design Studio - Studio-Lecture	INTR 430
+INTR	Furniture Design - Studio-Lecture & Lab	INTR 441
+INTR	Hospitality Design Studio - Lecture & Lab	INTR 442
+INTR	Interior Systems - Lecture	INTR 451
+INTR	Senior Project I - Seminar	INTR 491
+INTR	Graduate Studio B - Studio-Lecture	INTR 632
+INTR	Studio B Seminar - Studio-Lecture	INTR 633
+INTR	Interior Systems I - Lecture	INTR 634
+INTR	Furniture Design - Studio	INTR 641
+INTR	Graduate Studio E - Studio-Lecture	INTR 662
+INTR	Studio E Seminar - Studio-Lecture	INTR 663
+INTR	Thesis Programming - Lecture	INTR 694
+INTR	Interior Studio I - Special Topics-Lecture	INTR T580
+INTR	Hist of Modern Arch & Intr - Special Topics-Lecture	INTR T580
+IPS	Rethinking Healthy Aging through Public Policy and Healthcare Innovation - Lecture	IPS 360
+IPS	Advanced Ethical Decision Making in Health Care - Lecture	IPS 502
+IPS	Confronting Issues in Contemporary Health Care Environments - Lecture	IPS 503
+IPS	Quality and Safety in Healthcare - Lecture	IPS 544
+IPS	The Business of Healthcare - Lecture	IPS 564
+IPS	Foundations of Healthcare Education - Lecture	IPS 591
+IPS	Community Engagement: Listening to Community Voices to Promote Health Equity - Special Topics-Lecture	IPS T580
+ISTM	Foundations in Evidence-Based STEM Pedagogy - Lecture	ISTM 511
+ITAL	Italian I - Lecture	ITAL 101
+JAPN	Japanese I - Lecture	JAPN 101
+JAPN	Japanese II - Lecture	JAPN 102
+JAPN	Japanese III - Lecture	JAPN 103
+JAPN	Japanese IV - Lecture	JAPN 201
+JAPN	Japanese V - Lecture	JAPN 202
+JAPN	Introduction to Japanese Culture - Lecture	JAPN 350
+JWST	Mediterranean Ensemble - Special Topics-Lecture	JWST T180
+JWST	Jewish Health & Medical Ethics - Special Topics-Lecture	JWST T380
+KOR	Korean I - Lecture	KOR 101
+KOR	Korean II - Lecture	KOR 102
+KOR	Korean III - Lecture	KOR 103
+LAW	Law & Society - Lecture	LAW 101
+LAW	American Legal Systems - Lecture	LAW 110
+LAW	Foundations of Legal Research - Lecture	LAW 135
+LAW	"Sex, Gender, Sexuality & the Law - Lecture"	LAW 217
+LAW	Courtroom Advocacy - Special Topics	LAW T380
+LING	Introduction to Linguistics - Lecture	LING 101
+LING	Language and Society - Lecture	LING 102
+MATE	Introduction to Polymers - Lecture	MATE 214
+MATE	Thermodynamics of Materials - Lecture	MATE 240
+MATE	Advanced Materials Laboratory - Lecture	MATE 280
+MATE	Structure and Characterization of Crystalline Materials - Lecture	MATE 355
+MATE	Processing of Metallic Materials - Lab	MATE 366
+MATE	Processing of Metallic Materials - Lecture	MATE 366
+MATE	Mechanical Behavior of Solids - Lecture	MATE 370
+MATE	Biomedical Materials - Lecture	MATE 455
+MATE	Engineering Computational Laboratory - Lab	MATE 460
+MATE	Engineering Computational Laboratory - Lecture	MATE 460
+MATE	Materials for Energy Storage - Lecture	MATE 482
+MATE	Environmental Effects on Materials - Lecture	MATE 483
+MATE	Structure and Properties of Polymers - Lecture	MATE 501
+MATE	Introduction to Materials Engineering - Lecture	MATE 503
+MATE	The Art of Being a Scientist - Lecture	MATE 504
+MATE	Materials Seminar Series - Seminar	MATE 536
+MATH	Fundamentals of Mathematics - Lecture	MATH 100
+MATH	Introduction to Analysis I - Lecture	MATH 101
+MATH	Introduction to Analysis II - Recitation/Discussion	MATH 102
+MATH	Introduction to Analysis II - Lecture	MATH 102
+MATH	"Algebra, Functions, and Trigonometry - Recitation/Discussion"	MATH 105
+MATH	"Algebra, Functions, and Trigonometry - Lecture"	MATH 105
+MATH	Probability and Statistics for Liberal Arts - Lecture	MATH 107
+MATH	Precalculus - Lecture	MATH 110
+MATH	Calculus and Functions I - Lecture	MATH 116
+MATH	Calculus I - Lecture	MATH 121
+MATH	Calculus II - Lecture	MATH 122
+MATH	Calculus III - Lecture	MATH 123
+MATH	Introduction to Analysis A - Lecture	MATH 171
+MATH	Multivariate Calculus - Recitation/Discussion	MATH 200
+MATH	Multivariate Calculus - Lecture & Recitation	MATH 200
+MATH	Multivariate Calculus - Lecture	MATH 200
+MATH	Linear Algebra - Lecture	MATH 201
+MATH	Differential Equations - Lecture	MATH 210
+MATH	Introduction to Mathematical Reasoning - Lecture	MATH 220
+MATH	Discrete Mathematics - Lecture	MATH 221
+MATH	Combinatorics - Lecture	MATH 222
+MATH	Math Competition Problem Solving Seminar - Lecture	MATH 235
+MATH	Mathematics for the Life Sciences - Lecture	MATH 239
+MATH	Mathematics of Investment and Credit - Lecture	MATH 250
+MATH	Differential Equations II - Lecture	MATH 285
+MATH	Complex and Vector Analysis for Engineers - Lecture & Recitation	MATH 291
+MATH	Numerical Analysis I - Lecture	MATH 300
+MATH	Numerical Analysis I - Recitation/Discussion	MATH 300
+MATH	Introduction to Optimization Theory - Lecture	MATH 305
+MATH	Probability and Statistics I - Recitation/Discussion	MATH 311
+MATH	Probability and Statistics I - Lecture	MATH 311
+MATH	Complex Variables - Lecture	MATH 322
+MATH	Abstract Algebra I - Lecture	MATH 331
+MATH	Abstract Algebra I - Recitation/Discussion	MATH 331
+MATH	Elements of Modern Analysis I - Lecture	MATH 401
+MATH	Scientific Data Analysis I - Lab	MATH 410
+MATH	Scientific Data Analysis I - Lecture	MATH 410
+MATH	Introduction to Topology - Lecture	MATH 422
+MATH	Linear Algebra & Matrix Analysis - Lecture	MATH 504
+MATH	Principles of Analysis I - Lecture	MATH 505
+MATH	Applied Probability and Statistics I - Lecture	MATH 510
+MATH	Ordinary Differential Equations I - Lecture	MATH 623
+MATH	Algebraic Combinatorics - Lecture	MATH 701
+MEM	Statics - Lecture	MEM 202
+MEM	Statics - Recitation/Discussion	MEM 202
+MEM	Mechanics of Materials I - Recitation/Discussion	MEM 230
+MEM	Mechanics of Materials I - Lecture	MEM 230
+MEM	Thermodynamic Analysis I - Recitation/Discussion	MEM 310
+MEM	Thermodynamic Analysis I - Lecture	MEM 310
+MEM	Thermal Fluid Science Laboratory - Lab	MEM 311
+MEM	Thermal Fluid Science Laboratory - Lecture	MEM 311
+MEM	Fluid Dynamics I - Lecture	MEM 320
+MEM	Heat Transfer - Recitation/Discussion	MEM 345
+MEM	Heat Transfer - Lecture	MEM 345
+MEM	Performance Enhancement of Dynamic Systems - Lecture	MEM 355
+MEM	Performance Enhancement of Dynamic Systems - Recitation/Discussion	MEM 355
+MEM	Introduction to Nuclear Engineering I - Lecture	MEM 371
+MEM	Power Plant Design - Lecture	MEM 402
+MEM	HVAC Loads - Lecture	MEM 413
+MEM	Introduction to Microfabrication - Lecture	MEM 417
+MEM	Mechanics of Vibration - Lecture	MEM 423
+MEM	Aircraft Design & Performance - Lecture	MEM 425
+MEM	Aerospace Structures - Lecture	MEM 426
+MEM	Finite Element Methods - Lab	MEM 427
+MEM	Finite Element Methods - Lecture	MEM 427
+MEM	Machine Design I - MEM 431 001 - Lecture	MEM 431
+MEM	Introduction to Computer-Aided Design and Manufacturing - Lab	MEM 435
+MEM	Introduction to Computer-Aided Design and Manufacturing - Lecture	MEM 435
+MEM	Manufacturing Process I - 10255 - MEM 437 - 001 - Lecture	MEM 437
+MEM	"Introduction to Robotics - Lecture, Lab & Recitation"	MEM 455
+MEM	Micro-Based Control Systems I - Lecture & Lab	MEM 458
+MEM	Senior Design Project I - Lab	MEM 491
+MEM	Applied Engr Analy Methods I - Lecture	MEM 591
+MEM	Conduction Heat Transfer - Lecture	MEM 611
+MEM	Foundations of Fluid Mechanics - Lecture	MEM 621
+MEM	Robust Control Systems I - Lecture	MEM 633
+MEM	Continuum Mechanics - Lecture	MEM 663
+MEM	Advanced Dynamics I - Lecture	MEM 666
+MEM	Manufacturing Processes I - 10256 - MEM 687 - 001 - Lecture	MEM 687
+MET	Fluid Power - Integrated Lecture & Lab	MET 209
+MET	Applied Mechanics - Lecture	MET 213
+MET	Advanced Robotics and Mechatronics - Lecture	MET 310
+MET	Computer Numerical Control - Lecture & Lab	MET 316
+MET	MFG Information Management - Lecture	MET 408
+MGMT	Introduction to Technology Innovation Management - Lecture	MGMT 201
+MGMT	Introduction to Entrepreneurship - Lecture	MGMT 260
+MGMT	Technology Management - Lecture	MGMT 364
+MGMT	Strategy and Competitive Advantage - Lecture	MGMT 450
+MGMT	Technology Strategy - Lecture	MGMT 603
+MGMT	Foundations of Research in Behavioral Science - Lecture	MGMT 906
+MGMT	Seminar in Organization Theory - Lecture	MGMT 935
+MHT	Thermodynamics II - Lecture	MHT 206
+MHT	Applied Dynamics I - Lecture	MHT 222
+MHT	Fluid Mechanics I - Lecture	MHT 301
+MIP	Survey of the Recording Industry - Lecture	MIP 132
+MIP	Introduction to Sound Recording - Lecture	MIP 179
+MIP	Listening Techniques - Lecture	MIP 227
+MIP	Sound Recording I - Lecture	MIP 279
+MIP	Digital Audio Workstations III - Lecture	MIP 333
+MIP	Music Publishing - Lecture	MIP 361
+MIP	Marketing and Promo in Music Industry - Lecture	MIP 375
+MIP	MAD Dragon Music Group - Practicum	MIP 376
+MIP	Sound Recording II - Lecture	MIP 379
+MIP	Audio for Video - Lecture	MIP 381
+MIP	Synthesis and Sampling - Lecture	MIP 384
+MIP	Digital Revenue & Creative Destruction - Lecture	MIP 395
+MIP	Senior Project in Music Industry - Lecture	MIP 491
+MIP	Community Recording - Special Topics-Lecture	MIP T380
+MIP	Touring Concert and Promotion - Special Topics-Lecture	MIP T380
+MIP	Research Methodologies in MI - Special Topics-Lecture	MIP T380
+MIS	Management Information Systems - Recitation/Discussion	MIS 200
+MIS	Management Information Systems - Lecture	MIS 200
+MIS	Systems Analysis and Design - Lecture	MIS 342
+MIS	Database Design and Implementation - Lecture	MIS 343
+MIS	Management Information Systems Strategy - Lecture	MIS 346
+MIS	Domestic and Global Outsourcing Management - Lecture	MIS 347
+MIS	Information System Project Management - Lecture	MIS 361
+MIS	Aligning Information Systems and Business Strategies - Lecture	MIS 612
+MIS	Digital Platform Management - Lecture	MIS 643
+MKTG	Introduction to Marketing Management - Lab	MKTG 201
+MKTG	Introduction to Marketing Management - Lecture	MKTG 201
+MKTG	Selling and Sales Management - Lecture	MKTG 321
+MKTG	Advertising & Integrated Marketing Communications - Lecture	MKTG 322
+MKTG	Marketing Insights - Lecture	MKTG 326
+MKTG	Professional Personal Selling - Lecture	MKTG 344
+MKTG	Consumer Behavior - Lecture	MKTG 356
+MKTG	Customer Analytics - Lecture	MKTG 366
+MKTG	Data-Driven Digital Marketing - Lecture	MKTG 367
+MKTG	Corporate Responsibility Management - Lecture	MKTG 368
+MKTG	Seminar in Marketing Strategy - Seminar	MKTG 380
+MKTG	Marketing Strategy - Lecture	MKTG 510
+MKTG	Marketing Strategy & Planning - Lecture	MKTG 601
+MKTG	Marketing Experiments - Lecture	MKTG 607
+MKTG	Marketing Information Management and Research - Lecture	MKTG 652
+MLSC	Basic Leadership Lab/Practicum - Lab	MLSC 101
+MLSC	Leadership and Personal Developmnt - Lecture	MLSC 110
+MLSC	Innovative Tactical Leadership - Lecture	MLSC 210
+MLSC	Adaptive Team Leadership - Lecture	MLSC 230
+MLSC	Leadership Lab/Practicum - Lab	MLSC 301
+MLSC	Leadership in Contact - Lecture	MLSC 310
+MLSC	Complex Team Leadership Issues - Lecture	MLSC 320
+MLSC	Developing Adaptive Leaders - Lecture	MLSC 410
+MUSC	University Chorus - Practice	MUSC 101
+MUSC	Chamber Singers - Practice	MUSC 102
+MUSC	All-College Choir - Practice	MUSC 104
+MUSC	Concert Band - Practice	MUSC 105
+MUSC	Jazz Orchestra - Practice	MUSC 107
+MUSC	Jazztet - Practice	MUSC 108
+MUSC	University Orchestra - Practice	MUSC 109
+MUSC	Chamber Music: Experimental - Performance	MUSC 111
+MUSC	Fusion Band - Practice	MUSC 112
+MUSC	Percussion Ensemble - Practice	MUSC 113
+MUSC	Mediterranean Ensemble - Practice	MUSC 114
+MUSC	Pep Band - Practice	MUSC 116
+MUSC	Rock Ensemble - Practice	MUSC 117
+MUSC	Chamber Music: Strings - Practice	MUSC 118
+MUSC	Music Fundamentals - Lecture	MUSC 120
+MUSC	Music Theory I - Lecture	MUSC 121
+MUSC	Ear Training I - Lab	MUSC 125
+MUSC	Introduction to Music - Lecture	MUSC 130
+MUSC	Class Piano I - Recitation/Discussion	MUSC 190
+MUSC	Class Guitar I - Recitation/Discussion	MUSC 191
+MUSC	Music History I - Lecture	MUSC 231
+MUSC	Rock Music Through the Mid-60s - Lecture	MUSC 236
+MUSC	Rock Music Since the Mid-60s - Lecture	MUSC 238
+MUSC	World Musics - Lecture	MUSC 331
+MUSC	Afro-American Music USA - Lecture & Recitation	MUSC 333
+MUSC	History of Hip-Hop Music - Special Topics-Lecture	MUSC T280
+MUSL	Museum History and Philosophy - Lecture	MUSL 500
+MUSL	Museum Management - Lecture	MUSL 530
+NFS	"Nutrition, Foods, and Health - Lecture"	NFS 100
+NFS	Introduction to Nutrition & Food - Lab	NFS 101
+NFS	Intermediate Nutrition - Lecture	NFS 230
+NFS	Professional Issues in Nutrition and Foods - Lecture	NFS 265
+NFS	Community Nutrition - Lecture & Recitation	NFS 391
+NFS	Advanced Nutrition I: Macronutrition - Lecture	NFS 415
+NFS	Medical Nutrition Therapy I - Lecture	NFS 443
+NFS	Lifecycle Nutrition - Lecture	NFS 526
+NFS	Macronutrient Metabolism - Lecture	NFS 530
+NFS	Medical Nutrition Therapy II - Lecture	NFS 544
+NFS	Methods of Nutrition Research - Lab	NFS 602
+NFS	Individualized Supervised Practice Pathway - Practicum	NFS 609
+NFS	Nutrition Counseling - Lecture	NFS 630
+NFS	Community Nutrition - Lecture	NFS 690
+NSC	Naval Science Drill - Lecture	NSC 100
+NSC	Naval Orientation/Introduction to Naval Science - Lecture	NSC 101
+NSC	Leadership & Management - Lecture	NSC 201
+NSC	Engineering - Lecture	NSC 301
+NSC	Evolution of Warfare - Lecture	NSC 310
+NSC	Navigation II - Lecture	NSC 401
+NSC	Amphibious Warfare - Lecture	NSC 410
+NUPR	Nurse Practitioner Clinical Orientation Seminar - Seminar	NUPR 520
+NUPR	Foundations for Clinical Nurse Leader - Lecture and Clinical	NUPR 602
+NURS	Contemporary Health Care - Lecture	NURS 120
+NURS	Concepts of Pathophysiology in Nursing - Lecture	NURS 221
+NURS	Health Assessment for Nursing Practice - Lecture & Lab	NURS 225
+NURS	Fundamentals of Nursing Practice - Lecture & Lab	NURS 226
+NURS	Courageous Action: Leading Authentically - Lecture	NURS 310
+NURS	Health and Illness Concepts I - Lecture	NURS 320
+NURS	Health and Illness Concepts II - Lecture	NURS 321
+NURS	Concepts of Mental Health Nursing - Lecture	NURS 322
+NURS	Nursing Pharmacology Concepts I - Lecture	NURS 323
+NURS	Reproductive Health Across the Lifespan - Lecture	NURS 326
+NURS	Population Health Concepts - Lecture	NURS 327
+NURS	Pediatric Health Concepts - Lecture	NURS 328
+NURS	Nursing Pharmacology Concepts II - Lecture	NURS 329
+NURS	Health and Illness Concepts III - Lecture	NURS 420
+NURS	Leadership Concepts in Nursing - Lecture	NURS 422
+NURS	Peri-Operative Nursing I - Lecture	NURS 485
+NURS	Advanced Principles of Nurse Anesthesia II - Lecture	NURS 515
+NURS	Advanced Pathophysiology II - Lecture	NURS 522
+NURS	Anesthesia Seminar - Seminar	NURS 530
+NURS	Epidemiology in Action: Tracking Health & Disease - Lecture	NURS 531
+NURS	"FNP II: Primary and Episodic Care of Infants, Children and Adolescents - Lecture and Clinical"	NURS 535
+NURS	Adult Gerontology Acute Care Nurse Practitioner II: Mgnt/Care of Patients in Acute/Crit Care Med Set - Lecture and Clinical	NURS 571
+NURS	PMHNP II: Advanced Mental Health Nurse Practitioner Theoretical Foundations and Psychopathology II - Lecture and Clinical	NURS 593
+NURS	The Role and Responsibility of the Nurse Educator - Lecture	NURS 613
+NURS	Teaching Methods in Nursing Education - Lecture	NURS 616
+NURS	"PNP II: Episodic Care of Infants, Children and Adolescents in Primary Care - Lecture and Clinical"	NURS 643
+NURS	PNP III: Management and Care of Adolescents in the Primary Care Setting - Lecture and Clinical	NURS 647
+NURS	Adult-Gerontology Primary Care II: Management and Care of Adult Patients in Primary Care - Lecture	NURS 661
+NURS	Clinical Residency I - Practicum	NURS 687
+NURS	WHNP II: Mngmnt & Care of the Complex Gyn and Gender Related Issues of Women throughout the Lifespan - Lecture and Clinical	NURS 691
+NURS	Doctoral Nursing Practice Clinical Practicum - Practice	NURS 830
+NURS	Clinical and Applied Nursing Ethics - Lecture	NURS 836
+OPM	Operations Management - Lecture	OPM 200
+OPM	Operations Planning - Lecture	OPM 324
+OPM	Supply Chain Management - Lecture	OPM 341
+OPM	Revenue Management - Lecture	OPM 344
+OPR	Linear Models for Decision Making - Lecture	OPR 320
+OPR	Managerial Decision Models and Simulation - Lecture	OPR 601
+OPR	Advanced Mathematical Program - Lecture	OPR 624
+OPR	Applied Math Programming - Lecture	OPR 992
+ORGB	Organizational Behavior - Lecture	ORGB 300
+ORGB	Leadership: Theory and Practice - Lecture	ORGB 320
+ORGB	"Leading in Dynamic Environments: A Personal, Relational, and Strategic Approach - Lecture"	ORGB 511
+PA	Clinical Anatomy - Lab	PA 540
+PA	Clinical Anatomy - Lecture	PA 540
+PA	Patient Communication - Seminar	PA 542
+PA	Patient Communication - Lecture	PA 542
+PA	Ethical Issues in Physician Assistant Practice - Seminar	PA 543
+PA	Ethical Issues in Physician Assistant Practice - Lecture	PA 543
+PA	Clinical Assessment - Lab	PA 544
+PA	Clinical Assessment - Lecture	PA 544
+PA	Physician Assistant Practice - Lecture	PA 545
+PA	Clinical Assessment Competency - Independent/Directed Study	PA 570
+PBHL	Public Health 101 - Seminar	PBHL 101
+PBHL	Overview of Issues in Global Health - Lecture	PBHL 303
+PBHL	Introduction to Health & Human Rights - Lecture	PBHL 304
+PBHL	The U.S. Public Health System - Lecture	PBHL 308
+PBHL	Public Health Biology - Seminar	PBHL 311
+PBHL	Public Health Data Analysis - Seminar	PBHL 312
+PBHL	The Social Determinants of Health and Well-Being - Lecture	PBHL 313
+PBHL	Environmental and Occupational Health - Lecture	PBHL 314
+PBHL	Public Health Leadership - Lecture	PBHL 315
+PBHL	"Drugs, Society, and Public Health - Lecture"	PBHL 316
+PBHL	Capstone Experience I - Lecture	PBHL 497
+PBHL	Public Health Foundations and Systems I - Lecture	PBHL 510
+PBHL	Public Health Foundations and Systems I - Lab	PBHL 510
+PBHL	Food Justice - Special Topics-Lecture	PBHL T380
+PENG	Peace Engineering Seminar - Fall - Seminar	PENG 501
+PHEV	Weather I: Climate and Global Change - Lab	PHEV 145
+PHEV	Weather I: Climate and Global Change - Lecture	PHEV 145
+PHEV	Weather II: Analysis and Forecasting - Lab	PHEV 146
+PHEV	Weather II: Analysis and Forecasting - Lecture	PHEV 146
+PHIL	Critical Reasoning - Lecture	PHIL 105
+PHIL	Introduction to Philosophy - Lecture	PHIL 110
+PHIL	Symbolic Logic I - Lecture	PHIL 111
+PHIL	Ethical Reasoning - Lecture	PHIL 151
+PHIL	Metaphysics: Philosophy of Reality - Lecture	PHIL 211
+PHIL	Aesthetics: Philosophy of Art - Lecture	PHIL 231
+PHIL	Ethics - Lecture	PHIL 251
+PHIL	Philosophy of Sex & Love - Lecture	PHIL 255
+PHIL	Ethics and the Media - Lecture	PHIL 305
+PHIL	Ethics and Information Technology - Lecture	PHIL 311
+PHIL	Engineering Ethics - Lecture	PHIL 315
+PHIL	Biomedical Ethics - Lecture	PHIL 321
+PHIL	Environmental Ethics - Lecture	PHIL 340
+PHIL	Philosophy of Medicine - Lecture	PHIL 355
+PHIL	Ancient Ethics - Lecture	PHIL 481
+PHIL	Ancient Ethics - Special Topics-Lecture	PHIL T480
+PHTO	Photography - Lecture	PHTO 110
+PHTO	Digital Photographic Post Production - Lecture	PHTO 141
+PHTO	Intermediate Photography - Lecture	PHTO 210
+PHTO	Large Format Photography - Studio-Lecture	PHTO 233
+PHTO	Studio Photography - Studio-Lecture	PHTO 234
+PHTO	Fine Black & White Printing - Lecture	PHTO 253
+PHTO	History of Contemporary Photography - Lecture	PHTO 452
+PHTO	Senior Thesis in Photography I - Lecture	PHTO 492
+PHYS	Preparation for Engineering Studies - Recitation/Discussion	PHYS 100
+PHYS	Preparation for Engineering Studies - Lecture	PHYS 100
+PHYS	Fundamentals of Physics I - Lecture	PHYS 101
+PHYS	Fundamentals of Physics I - Lab	PHYS 101
+PHYS	Fundamentals of Physics I - Recitation/Discussion	PHYS 101
+PHYS	Fundamentals of Physics II - Recitation/Discussion	PHYS 102
+PHYS	Fundamentals of Physics II - Lab	PHYS 102
+PHYS	Fundamentals of Physics II - Lecture	PHYS 102
+PHYS	Contemporary Physics I - Recitation/Discussion	PHYS 113
+PHYS	Contemporary Physics I - Lecture	PHYS 113
+PHYS	Introduction to Experimental Physics - Lab	PHYS 128
+PHYS	Introduction to Experimental Physics - Lecture	PHYS 128
+PHYS	Survey of the Universe - Lecture	PHYS 131
+PHYS	Introductory Physics I - Recitation/Discussion	PHYS 152
+PHYS	Introductory Physics I - Lab	PHYS 152
+PHYS	Introductory Physics III - Recitation/Discussion	PHYS 154
+PHYS	Introductory Physics III - Lab	PHYS 154
+PHYS	Introductory Physics III - Lecture	PHYS 154
+PHYS	Electricity and Motion - Recitation/Discussion	PHYS 170
+PHYS	Electricity and Motion - Lecture	PHYS 170
+PHYS	Computational Lab for Electricity and Motion - Lab	PHYS 171
+PHYS	Fundamentals of Physics III - Lab	PHYS 201
+PHYS	Fundamentals of Physics III - Recitation/Discussion	PHYS 201
+PHYS	Fundamentals of Physics III - Lecture	PHYS 201
+PHYS	Thermodynamics - Lecture	PHYS 217
+PHYS	Observational Astrophysics - Lecture & Lab	PHYS 232
+PHYS	Electromagnetic Fields I - Lecture	PHYS 321
+PHYS	Quantum Mechanics I - Lecture	PHYS 326
+PHYS	Introduction to Nuclear Physics - Lecture	PHYS 330
+PHYS	Physics Seminar - Seminar	PHYS 408
+PHYS	Quantum Mechanics III - Lecture & Recitation	PHYS 428
+PHYS	Big Data Physics - Lecture	PHYS 440
+PHYS	Solid State Physics - Lecture	PHYS 452
+PHYS	Senior Research I - Lecture	PHYS 491
+PHYS	Mathematical Physics I - Lecture	PHYS 501
+PHYS	Dynamics I - Lecture	PHYS 506
+PHYS	Quantum Information - Lecture	PHYS 558
+PHYS	Solid State Physics I - Lecture	PHYS 626
+PLCY	Methods of Policy Analysis - Lecture	PLCY 504
+PLCY	Case Study Research II - Research	PLCY 516
+POM	Operations and Supply Chain Management - Lecture	POM 510
+POM	Transportation & Logistics Management - Lecture	POM 630
+POM	Sustainable Supply Chain Management and Logistics - Lecture	POM 642
+POM	Supply Chain Management and Logistics Capstone Project - Practicum	POM 770
+PPE	"Introduction to Philosophy, Politics and Economics - Lecture"	PPE 101
+PROD	History and Analysis of Product Design - Lecture	PROD 101
+PROD	Applied Making I - Lecture & Lab	PROD 205
+PROD	Design Thinking in Product Design - Lecture	PROD 215
+PROD	Product Design Form Studio - Lecture & Lab	PROD 220
+PROD	Applied Design Visualization - Lecture	PROD 235
+PROD	Smart Product Design - Lecture	PROD 240
+PROD	Interdisciplinary Product Design Studio - Lecture & Lab	PROD 340
+PROD	Applied Design Research - Lecture	PROD 425
+PROD	Research Synthesis Studio - Lecture & Lab	PROD 460
+PSCI	American Government - Lecture	PSCI 110
+PSCI	History of Political Thought - Lecture	PSCI 120
+PSCI	International Politics - Lecture	PSCI 150
+PSCI	Constitutional Law I - Lecture	PSCI 220
+PSCI	Theories of Justice - Lecture	PSCI 229
+PSCI	Qualitative and Mixed-Methods Research in Political Science - Lecture	PSCI 231
+PSCI	Comparative Politics II - Lecture	PSCI 240
+PSCI	Civilians in Armed Conflict - Lecture	PSCI 310
+PSCI	Cities and Climate Change - Lecture	PSCI 338
+PSCI	The United Nations in World Politics - Lecture	PSCI 351
+PSCI	Politics of Immigration - Lecture	PSCI 375
+PSCI	Urban Political Economy - Special Topics	PSCI T380
+PSCI	The Politics of Policing - Special Topics-Lecture	PSCI T380
+PSCI	Parties and Elections - Special Topics-Lecture	PSCI T380
+PSY	General Psychology I - Lecture	PSY 101
+PSY	Pre-Professional General Psychology I - Lecture	PSY 111
+PSY	Developmental Psychology - Lecture	PSY 120
+PSY	Approaches to Personality - Lecture	PSY 140
+PSY	Introduction to Social Psychology - Lecture	PSY 150
+PSY	Physiological Psychology - Lecture	PSY 212
+PSY	Sensation and Perception - Lecture	PSY 213
+PSY	Abnormal Psychology - Lecture	PSY 240
+PSY	Sports Psychology - Lecture	PSY 245
+PSY	Death and Dying - Lecture	PSY 252
+PSY	Computer-Assisted Data Analysis I - Lecture	PSY 264
+PSY	Psychology of Hate - Lecture	PSY 270
+PSY	History and Systems of Psychology - Lecture	PSY 290
+PSY	Psychology of Learning - Lecture	PSY 325
+PSY	Cognitive Psychology - Lecture	PSY 330
+PSY	Multicultural Issues in Psychology - Lecture	PSY 333
+PSY	Experimental Psychology - Lecture	PSY 360
+PSY	Psychological Testing and Assessment - Lecture	PSY 380
+PSY	Clinical Case Conceptualization - Lecture	PSY 515
+PSY	Psychopathology - Lecture	PSY 520
+PSY	Neuroanatomy and Behavior - Lecture	PSY 530
+PSY	Data Analysis in Psychology - Lecture	PSY 610
+PSY	Theories of Intervention - Lecture	PSY 722
+PSY	Cognitive Neuroscience - Lecture	PSY 812
+PSY	Behavioral Stress Management - Lecture	PSY 827
+PSY	Psychology of Rehabilitation - Lecture	PSY 854
+PSY	Community Psychology - Special Topics-Lecture	PSY T280
+PSY	Master's Analysis Data I - Special Topics-Lecture	PSY T680
+PTRS	Kinesiology I - Lab	PTRS 530
+PTRS	Kinesiology I - Lecture	PTRS 530
+PTRS	Human Gross Anatomy I - Lecture & Lab	PTRS 532
+PTRS	Physical Therapy Exam & Intervention I - Lab	PTRS 534
+PTRS	Physical Therapy Exam & Intervention I - Lecture	PTRS 534
+PTRS	Clinical Reasoning - Lecture	PTRS 600
+PTRS	Orthopedic Physical Therapy: Spine - Lab	PTRS 622
+PTRS	Orthopedic Physical Therapy: Spine - Lecture	PTRS 622
+PTRS	Cardiopulmonary Physical Therapy II - Lecture	PTRS 630
+PTRS	Applied Biomechanics - Lecture & Seminar	PTRS 643
+PTRS	Applied Biomechanics - Lecture & Seminar I	PTRS 643
+PTRS	Integumentary Physical Therapy - Lecture & Lab	PTRS 644
+PTRS	Prosthetics and Orthotics - Lecture & Lab	PTRS 648
+PTRS	"Culture, Ethics and Interprofessionalism in Healthcare - Lecture"	PTRS 649
+PTRS	Topics in Health Policy & Services - Lecture	PTRS 654
+PTRS	Health Administration - Lecture	PTRS 655
+PTRS	Motor Control and Rehabilitation - Lecture	PTRS 656
+PTRS	Evaluation of Research In Physical Therapy - Lecture	PTRS 755
+REMD	Sustainability in the Built Environment - Lecture	REMD 320
+REMD	Real Estate Finance - Lecture	REMD 375
+REMD	Real Estate Investment and Asset Management - Lecture	REMD 410
+RSCH	Research Methods and Biostatistics - Lecture	RSCH 503
+RSCH	Evaluation and Translation of Health Research - Lecture	RSCH 504
+RSCH	Foundations of Biostatistics - Lecture	RSCH 720
+SCRP	Entertainment Storytelling Fundamentals - Lecture	SCRP 150
+SCRP	Playwriting I - Lecture	SCRP 220
+SCRP	Playwriting II - Lecture	SCRP 225
+SCRP	Writing TV Comedy - Lecture	SCRP 241
+SCRP	Screenwriting I - Lecture	SCRP 270
+SCRP	Writing the Short Film - Lecture	SCRP 280
+SCRP	Screenplay Story Development - Lecture	SCRP 370
+SCRP	Senior Project in Dramatic Writing I - Thesis	SCRP 495
+SCTS	"Introduction to Science, Technology, and Society - Lecture"	SCTS 101
+SCTS	Environmental Ethics - Special Topics-Lecture	SCTS T380
+SCTS	Philosophy of Medicine - Special Topics-Lecture	SCTS T380
+SE	Introduction to Software Engineering and Development - Lecture	SE 181
+SE	Software Specification and Design I - Lecture	SE 210
+SE	Software Architecture I - Lecture	SE 310
+SE	Software Verification and Validation - Lecture	SE 320
+SE	Software Evolution - Lecture	SE 410
+SE	Agile Software Development Process - Lecture	SE 570
+SE	Software Design - Lecture	SE 575
+SE	Requirements Engineering and Management - Lecture	SE 627
+SE	Software Engineering Economics - Lecture	SE 630
+SE	Software Project Management - Lecture	SE 638
+SE	Software Studio - Lecture	SE 691
+SMT	The Business of Sport - Lecture	SMT 110
+SMT	The Business of Esport - Lecture	SMT 120
+SMT	Sport Media Relations - Lecture	SMT 205
+SMT	Sports and the Law - Lecture	SMT 230
+SMT	"Sport, Industry, and Society - Lecture"	SMT 285
+SMT	Sports Contracts - Lecture	SMT 310
+SMT	Sport Economics - Lecture	SMT 320
+SMT	Sport Governance & Policy - Lecture	SMT 335
+SMT	Sport Business Consulting - Lecture	SMT 372
+SMT	Professional Portfolio - Lecture	SMT 401
+SOC	Introduction to Sociology - Lecture	SOC 101
+SOC	Social Problems - Lecture	SOC 115
+SOC	"Race, Ethnicity and Social Inequality - Lecture"	SOC 210
+SOC	Wealth and Power - Lecture	SOC 220
+SOC	Sociology of the Family - Lecture	SOC 221
+SOC	Sex and Society - Lecture	SOC 222
+SOC	Gender and Society - Lecture	SOC 230
+SOC	Sociology of Health and Illness - Lecture	SOC 235
+SOC	Sociology of Health Professions - Lecture	SOC 238
+SOC	Urban Sociology - Lecture	SOC 240
+SOC	Research Design: Qualitative Methods - Lecture	SOC 241
+SOC	Gentrification and Neighborhood Change - Lecture	SOC 281
+SOC	Sociology of Deviance - Lecture	SOC 320
+SOC	Development and Underdevelopment in the Global South - Lecture	SOC 330
+SOC	Politics of Life - Seminar	SOC 430
+SOC	Women's Health and Human Rights - Special Topics-Lecture	SOC T280
+SPAN	Spanish I - Lecture	SPAN 101
+SPAN	Spanish II - Lecture	SPAN 102
+SPAN	Spanish III - Lecture	SPAN 103
+SPAN	Spanish for Healthcare Professionals I - Lecture	SPAN 113
+SPAN	Spanish IV - Lecture	SPAN 201
+SPAN	Spanish V - Lecture	SPAN 202
+SPAN	Whatever Happened to Gloria Delgado-Pritchett? Latin Americans and Latinxs in U.S. Media - Lecture	SPAN 350
+SPAN	Practice in Translation - Lecture	SPAN 410
+STAT	Introduction to Business Statistics - Lecture	STAT 201
+STAT	Business Statistics II - Lecture	STAT 202
+STAT	Statistical Inference I - Lecture	STAT 205
+STAT	Introduction to Statistics for Business Analytics - Lecture	STAT 510
+STAT	Statistics for Business Analytics - Lecture	STAT 610
+STAT	Applied Regression Analysis - Lecture	STAT 628
+STAT	Time Series Forecasting - Lecture	STAT 645
+STAT	Statistics for Economics - Lecture	STAT 931
+STAT	Statistics for Behavioral Science - Lecture	STAT 932
+SYSE	Systems Engineering Management - Lecture	SYSE 685
+TAX	Advanced Federal Taxes - Lecture	TAX 342
+TAX	Tax Research - Lecture	TAX 411
+THTR	Voice and Articulation - Lecture	THTR 110
+THTR	Theatrical Experience - Lecture	THTR 115
+THTR	Philadelphia Theatre Let's Go! - Lecture	THTR 116
+THTR	Dramatic Analysis - Lecture	THTR 121
+THTR	Introduction to Theater Production Practicum - Practicum	THTR 130
+THTR	Theatre Production Practicum - Practice	THTR 132
+THTR	Theatre Management Practicum - Practicum	THTR 133
+THTR	Open Mic Management Practicum - Practicum	THTR 134
+THTR	Theatre Performance Ensemble - Practicum	THTR 141
+THTR	Musical Theatre Cabaret - Practicum	THTR 143
+THTR	Advanced Theatre Improvisation Ensemble - Practicum	THTR 145
+THTR	Acting: Fundamentals - Lecture	THTR 210
+THTR	Acting: Scene Study - Lecture & Lab	THTR 211
+THTR	Theatre Production I - Lecture	THTR 240
+THTR	Play Direction - Lecture	THTR 320
+TVMN	The Field of Television Management - Lecture	TVMN 606
+TVMN	Television Programming - Lecture	TVMN 710
+TVST	Art of TV Drama - Lecture	TVST 362
+TVST	Supernatural Fantasy TV Shows - Lecture	TVST 368
+URBS	Quantitative Methods & Reasoning for Urban Strategists - Lecture	URBS 530
+URBS	Thesis I: Research Inquiry & Design - Lecture	URBS 670
+VSCM	Computer Imaging II - Lecture & Lab	VSCM 200
+VSCM	Web Graphics I - Studio	VSCM 220
+VSCM	Visual Communication I - Studio-Lecture & Lab	VSCM 230
+VSCM	Typography I - Lecture & Lab	VSCM 240
+VSCM	Motion Graphics I - Studio	VSCM 322
+VSCM	Visual Communication IV - Lecture & Lab	VSCM 332
+VSCM	Typography III - Lecture & Lab	VSCM 340
+VSCM	Visual Communication VI - Lecture & Lab	VSCM 430
+VSCM	Book Design - Studio	VSCM 440
+VSCM	Graphic Design Form + Process - Special Topics-Lecture	VSCM T380
+VSST	Design I - Studio-Lecture & Lab	VSST 101
+VSST	Introduction to Design for Media - Studio	VSST 107
+VSST	Design I for Media - Lecture & Recitation	VSST 108
+VSST	Introductory Drawing - Lab	VSST 110
+VSST	Figure Drawing I - Lab	VSST 111
+VSST	Tablet Drawing - Studio	VSST 114
+VSST	Multimedia: Performance - Studio-Lab	VSST 201
+VSST	Multimedia: Space - Studio-Lecture & Lab	VSST 202
+VSST	Multimedia: Materials - Studio-Lecture & Lab	VSST 203
+VSST	Painting Basics - Studio-Lecture	VSST 210
+VSST	Painting I - Studio-Lecture & Lab	VSST 301
+VSST	Sculpture: CNC Fabrication - Lab	VSST 309
+VSST	Sculpture I - Studio-Lecture & Lab	VSST 311
+VSST	Screenprint I - Lecture & Lab	VSST 321
+VSST	Printmaking I - Lecture & Lab	VSST 322
+VSST	Space/Time I - Lab	VSST 502
+VSST	Sculpture: CNC Fabrication - Lecture & Lab	VSST 509
+WEST	Introduction to Digital Design Tools - Lecture	WEST 100
+WEST	Deciding Design & Media - Lecture	WEST 105
+WEST	Maker Workshop - Studio-Lecture	WEST 107
+WEST	Product Meets Print - Special Topics-Lab	WEST T380
+WEST	Design Problem Solving - Special Topics-Lecture & Lab	WEST T480
+WEST	Technologies of Making - Special Topics-Lecture & Lab	WEST T480
+WGST	Introduction to Women's and Gender Studies - Lecture	WGST 101
+WGST	Writing on the Body - Lecture	WGST 220
+WGST	Women's Health and Human Rights - Lecture	WGST 275
+WGST	Masculinities - Lecture	WGST 320
+WGST	Philosophy of Sex & Love - Special Topics-Lecture	WGST T280
+WRIT	The Peer Reader in Context - Lecture	WRIT 210
+WRIT	Creative Writing - Lecture	WRIT 225
+WRIT	Writing in Public Spaces - Seminar	WRIT 226
+WRIT	Writing Poetry - Lecture	WRIT 301
+WRIT	Writing Fiction - Lecture	WRIT 302
+WRIT	Writing for Social Change - Lecture	WRIT 315
+WRIT	Writing in Cyberspace: Writing for/about the Web - Lecture	WRIT 400
+WRIT	Writing on the Body - Special Topics-Lecture	WRIT T280

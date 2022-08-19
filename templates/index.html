@@ -10,7 +10,7 @@
 {% block content %}
 <h1>Welcome to the Scheduler 1.0</h1>
 <p>This website will allow you to ensure the best possible schedule. Please note that you may get a different result
-    every time you run the scheduling algorithm. Also, please be patient as it can take a while to provide courses.</p>
+    every time you run the scheduling algorithm. Also, please be patient as it can take a while to provide schedules.</p>
 <div class="scheduler">
     <form method="post">
         <h2>Course Scheduler</h2>
@@ -38,7 +38,7 @@
         <input type="time" id="end1" name="end1" oninput="checkStartEnd(this, document.getElementById('end2'))" /> to <input type="time" name="end2" id="end2" /><br><br>
 
         <button type="button">Clear Filters</button><br><br>-->
-        <input type="submit" value="Apply Filters" /><br><br>
+        <input type="submit" value="Search for Schedules" /><br><br>
         {% if not user %}
         <p>To add preferences to your search, please <a href="login.html">log in</a> or
             <a href="signup.html">sign up</a> for an account.</p>
@@ -63,18 +63,30 @@
             <h3>Result {{ 25 * page + loop.index }}</h3>
             <table class="bordered">
                 <tr>
-                    <th colspan="3">Match Rating: {{score}}%</th>
+                    <th colspan="5">Match Rating: {{score}}%</th>
                 </tr>
                 <tr>
+                    <th>Course Abbreviation</th>
                     <th>Course Title</th>
                     <th>Section</th>
                     <th>Schedule</th>
+                    <th>Professor</th>
                 </tr>
-                {% for schedule in result %}
+                {% for section in result %}
                 <tr>
+                    <td>{{ selected_abbreviations[loop.index0] }}</td>
                     <td>{{ selected_courses[loop.index0] }}</td>
-                    <td>{{ schedule.section }}</td>
-                    <td>{{ schedule.times() }}</td>
+                    <td>{{ section.section }}</td>
+                    <td>
+                        {% for schedule in schedules[section.id] %}
+                            {{ schedule.times() }}<br>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {{ professors[section.professor_id].first_name }}
+                        {{ professors[section.professor_id].middle_initial }}
+                        {{ professors[section.professor_id].last_name }}
+                    </td>
                 </tr>
                 {% endfor %}
             </table><br><br>

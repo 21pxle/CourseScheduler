@@ -35,8 +35,9 @@
          Indices 1-5 encode the day of the week (1=Monday, 2=Tuesday, ..., 5=Friday).
          -->
         <td id="monday">
-            {% if prefs[1]|length %}
-                {% for pref in prefs[1] %}
+            {% if prefs['monday']|length %}
+                <div hidden>No Interval Selected</div>
+                {% for pref in prefs['monday'] %}
                     <div>
                         <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
                            value="{{ pref.start }}" id="mondayStart{{ loop.index }}"
@@ -46,16 +47,13 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <div>
-                    <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
-                           value="00:00" id="mondayStart1" name="mondayStart1" /> to
-                    <input type="time" id="mondayEnd1" value="23:59" name="mondayEnd1" /><br>
-                </div>
+                <div>No Interval Selected</div>
             {% endif %}
         </td>
         <td id="tuesday">
-            {% if prefs[2]|length %}
-                {% for pref in prefs[2] %}
+            {% if prefs['tuesday']|length %}
+                <div hidden>No Interval Selected</div>
+                {% for pref in prefs['tuesday'] %}
                     <div>
                         <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
                                value="{{ pref.start }}" id="tuesdayStart{{ loop.index }}"
@@ -65,16 +63,13 @@
                     </div>
                 {% endfor %}
             {% else %}
-            <div>
-                <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
-                       value="00:00" id="tuesdayStart1" name="tuesdayStart1" /> to
-                <input type="time" value="23:59" id="tuesdayEnd1" name="tuesdayEnd1" /><br>
-            </div>
+                <div>No Interval Selected</div>
             {% endif %}
         </td>
         <td id="wednesday">
-            {% if prefs[3]|length %}
-                {% for pref in prefs[3] %}
+            {% if prefs['wednesday']|length %}
+                <div hidden>No Interval Selected</div>
+                {% for pref in prefs['wednesday'] %}
                     <div>
                         <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
                                value="{{ pref.start }}" id="wednesdayStart{{ loop.index }}"
@@ -84,16 +79,13 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <div>
-                    <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
-                           value="00:00" id="wednesdayStart1" name="wednesdayStart1" /> to
-                    <input type="time" value="23:59" id="wednesdayEnd1" name="wednesdayEnd1" min="{{ pref.start }}" /><br>
-                </div>
+                <div>No Interval Selected</div>
             {% endif %}
         </td>
         <td id="thursday">
-            {% if prefs[4]|length %}
-                {% for pref in prefs[4] %}
+            {% if prefs['thursday']|length %}
+                <div hidden>No Interval Selected</div>
+                {% for pref in prefs['thursday'] %}
                     <div>
                         <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
                                value="{{ pref.start }}" id="thursdayStart{{ loop.index }}"
@@ -103,16 +95,13 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <div>
-                    <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
-                           value="00:00" id="thursdayStart1" name="thursdayStart1" /> to
-                    <input type="time" id="thursdayEnd1" value="23:59" name="thursdayEnd1" /><br>
-                </div>
+                <div>No Interval Selected</div>
             {% endif %}
         </td>
         <td id="friday">
-            {% if prefs[5]|length %}
-                {% for pref in prefs[5] %}
+            {% if prefs['friday']|length %}
+                <div hidden>No Interval Selected</div>
+                {% for pref in prefs['friday'] %}
                     <div>
                         <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
                                value="{{ pref.start }}" id="fridayStart{{ loop.index }}"
@@ -122,11 +111,7 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <div>
-                    <input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
-                           value="00:00" id="fridayStart1" name="fridayStart1" /> to
-                    <input type="time" id="fridayEnd1" value="23:59" name="fridayEnd1" /><br>
-                </div>
+                <div>No Interval Selected</div>
             {% endif %}
         </td>
     </tr>

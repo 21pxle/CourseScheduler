@@ -4,9 +4,10 @@ function checkStartEnd(input1, input2) {
 
 function addInterval(input) {
     selector = $('#' + input);
-    // The initial size is 1. This variable refers to the new size of the list, in terms of intervals (up to 5).
+    // The initial size is 0. This variable refers to the new size of the list, in terms of intervals (up to 5).
     size = selector.children().length + 1;
-    if (size <= 5) {
+    selector.children().first().hide();
+    if (size <= 6) {
         selector.append(`<div><input type="time" oninput="checkStartEnd(this, this.nextSibling.nextSibling)"
             name="${input}Start${size}" id="${input}Start${size}"/> to <input type="time"
             oninput="checkStartEnd(this, this.nextSibling.nextSibling)" name="${input}End${size}"
@@ -18,6 +19,9 @@ function removeInterval(input) {
     children = $('#' + input).children();
     size = children.length;
     if (size > 1) {
+        if (size == 2) {
+            children.first().show();
+        }
         children.last().remove();
     }
 }
