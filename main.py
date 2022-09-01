@@ -28,6 +28,7 @@ page_num = 0  # For results
 results, courses = [], []
 
 
+
 @app.before_first_request
 def load_session():
     """Instantiate all variables relating to the tables of courses, sections, and professors."""
@@ -550,7 +551,7 @@ def brute_force(lst, alpha):
     population = np.array(list(map(list, itertools.product(*lst_courses))))
 
     # Step 3
-    fitness_func = np.vectorize(fitness, signature='(n),() -> ()')
+    fitness_func = np.vectorize(fitness, signature='(n),() -> ()', otypes=[np.float])
     # start = timeit.default_timer()
     scores = fitness_func(population, alpha)
     # print(timeit.default_timer() - start)
