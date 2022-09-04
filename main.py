@@ -3,6 +3,8 @@ import random
 
 import math
 import itertools
+# import timeit
+# from dataclasses import dataclass
 
 import numpy as np
 from flask import (
@@ -26,7 +28,7 @@ db = SQLAlchemy(app)
 bcrypt_flask = Bcrypt(app)
 page_num = 0  # For results
 results, courses = [], []
-
+student_availabilities = []
 
 
 @app.before_first_request
@@ -38,9 +40,13 @@ def load_session():
     global all_schedules, all_sections, all_ratings, professors_by_course, section_ratings, schedules_by_section
     all_sections = {section.id: section for section in Section.query.all()}
     all_schedules = Schedule.query.all()
-    schedules_by_section = {all_sections[key]: list(value) for (key, value) in
-                            itertools.groupby(sorted(all_schedules, key=lambda schedule: schedule.id),
-                                              key=lambda schedule: schedule.section_id)}
+    schedules_by_section = {key: list(itertools.chain.from_iterable
+                                      ([[(get_time(day, x.start), "S"), (get_time(day, x.end), "E")] for x in value
+                                        for day, scheduled in enumerate([x.mondays, x.tuesdays, x.wednesdays,
+                                                                         x.thursdays, x.fridays]) if scheduled]))
+                            for (key, value) in itertools.groupby(sorted(all_schedules,
+                                                                         key=lambda schedule: schedule.id),
+                                                                  key=lambda schedule: schedule.section_id)}
     all_schedules = {key: list(value) for (key, value) in
                      itertools.groupby(sorted(all_schedules, key=lambda schedule: schedule.id),
                                        key=lambda schedule: schedule.section_id)}  # Group all schedules by section ID.
@@ -81,7 +87,7 @@ def standardize(arr: np.ndarray):
 @app.before_request
 def load_student():
     """Instantiate objects containing the available intervals and the student login info"""
-    global available_intervals
+    global available_intervals, student_availabilities
     g.user = None
     student_id = session.get("student_id")
     if student_id:
@@ -93,6 +99,9 @@ def load_student():
             flatten([[[v.start, 'S'], [v.end, 'E']] for v in value])), 2)) for (key, value) in itertools.groupby(
             sorted(all_available_intervals, key=lambda interval: (interval.day, interval.start)),
             key=lambda interval: interval.day)}
+        student_availabilities = list(itertools.chain.from_iterable([[(get_time(x.day - 1, x.start), "S"),
+                                                                      (get_time(x.day - 1, x.end), "E")]
+                                                                     for x in all_available_intervals]))
         # Now to convert that to start and end:
         # Dict of days, intervals
 
@@ -210,13 +219,14 @@ def get_time_from_str(time_str):
     return 60 * int(hours) + int(minutes)
 
 
-def get_time_in_minutes(time):
-    return 60 * time.hour + time.minute
+def get_time(day: int, time: datetime.time) -> int:
+    return 1440 * day + 60 * time.hour + time.minute
 
 
 @app.route('/profile', methods=['POST', 'GET'])
 def profile():
     # Preferences
+    global student_availabilities
     error, message = None, None
     if not g.user:
         return redirect(url_for("login"))
@@ -247,6 +257,9 @@ def profile():
                                                 start=interval[0], end=interval[1])
                     db.session.add(preference)
             db.session.commit()
+            student_availabilities = list(itertools.chain.from_iterable(
+                [[(get_time(x.day - 1, x.start), "S"), (get_time(x.day - 1, x.end), "E")] for x in
+                 AvailableTimes.query.filter(AvailableTimes.student_id == g.user.id).all()]))
             message, error = "Your preferences have been successfully saved.", None
         else:
             message, error = None, "Time intervals cannot overlap each other."
@@ -398,6 +411,12 @@ class AvailableTimes(db.Model):
     end = db.Column(db.Time, nullable=False)
 
 
+@dataclass
+class Interval:
+    start: int
+    end: int
+
+
 db.session.execute("CREATE DATABASE IF NOT EXISTS courses;")
 app.config.from_object('config.DevConfig')
 db.session.execute("USE courses;")
@@ -527,7 +546,7 @@ def chunks(lst, n):
 def brute_force(lst, alpha):
     """The brute-force approach is the most straightforward.
     It is used when there is a sufficiently small number
-    of combinations of courses (order less than ~250k).
+    of combinations of courses (order less than ~125k).
 
     Steps
     ----
@@ -551,7 +570,7 @@ def brute_force(lst, alpha):
     population = np.array(list(map(list, itertools.product(*lst_courses))))
 
     # Step 3
-    fitness_func = np.vectorize(fitness, signature='(n),() -> ()', otypes=[np.float])
+    fitness_func = np.vectorize(fitness, signature='(n),() -> ()', otypes=[float])
     # start = timeit.default_timer()
     scores = fitness_func(population, alpha)
     # print(timeit.default_timer() - start)
@@ -624,6 +643,10 @@ def diff_time(end, start):
     return (end.hour - start.hour) * 60 + (end.minute - start.minute)
 
 
+def overlap_counter(total: int, value):
+    return total + (1 if value[1][1] == "S" else -1)
+
+
 def fitness(genome: np.ndarray, alpha: float):
     """
     :param alpha: A parameter that weighs the priorities of a preferred schedule to a highly rated professor.
@@ -661,53 +684,41 @@ def fitness(genome: np.ndarray, alpha: float):
     alpha = 0: Only factor in professor ratings.
     """
     # Step 1
-    global all_schedules, available_intervals, schedules_by_section
-    intervals = {'monday': [], 'tuesday': [], 'wednesday': [], 'thursday': [], 'friday': []}
-
-    days = [key for key in intervals.keys()]
-    schedules = list(flatten(map(schedules_by_section.get, map(all_sections.get, genome))))
+    # start = timeit.default_timer()
+    global all_schedules, available_intervals, schedules_by_section, student_availabilities
+    schedules = list(itertools.chain.from_iterable(schedules_by_section[gene] for gene in genome))  # 22% of time
     # Equivalently: schedules = [[all_schedules[section.id] for section in all_sections]]
 
     # Step 2
-    course_time = 0
-    for schedule in schedules:
-        scheduled_days = [schedule.mondays, schedule.tuesdays, schedule.wednesdays,
-                          schedule.thursdays, schedule.fridays]
-        start, end = schedule.start, schedule.end
-        course_time += (60 * (end.hour - start.hour) + (end.minute - start.minute)) * sum(scheduled_days)
-        for idx, day in enumerate(days):
-            if scheduled_days[idx]:
-                intervals[day].extend([[start, 'S'], [end, 'E']])
+    course_time = sum(s[0] for s in schedules[1::2]) - sum(s[0] for s in schedules[0::2])
     if not len(schedules):
         raise TypeError('No course section found. Please try again.')
-    intervals = {day: sorted(intervals[day], key=lambda x: x[0]) for day in intervals}
+    intervals = sorted(schedules)
 
     # Step 3
-    for day_intervals in intervals.values():
-        count = 0
-        for interval in day_intervals:
-            # An overlapping interval starts later than the earlier interval ends.
-            count += 1 if interval[1] == "S" else -1
-            if count > 1:
-                return 0
+    count = 0
+    for _, flag in intervals:
+        count += 1 if flag == "S" else -1
+        if count > 1:
+            return 0
+
     # Step 4
     if alpha == 0:
         return 100 * max(sum(section_ratings[section_id] for section_id in genome) / len(genome), 1)
 
-    for key, value in available_intervals.items():
-        intervals[key] += value
-    intervals = {day: sorted(intervals[day], key=lambda x: x[0]) for day in intervals}
+    intervals = sorted(intervals + student_availabilities)
     overlap = 0
-    for value in intervals.values():
-        count = 1
-        for (first, second) in itertools.pairwise(value):
-            # An overlapping interval starts later than the earlier interval ends.
-            if count > 1:
-                overlap += diff_time(second[0], first[0])
-            count += 1 if second[1] == "S" else -1
+    count = 1
+    for ((first, _), (second, flag)) in itertools.pairwise(intervals):
+        # An overlapping interval starts later than the earlier interval ends.
+        if count > 1:
+            overlap += second - first
+        count += 1 if flag == "S" else -1
+
     # Steps 5 & 6
     if alpha == 1:
         return 100 * overlap / total_time if (total_time := max(overlap, course_time)) > 0 else 100
+    # print(elapsed / (timeit.default_timer() - start))
     return 100 * ((alpha * (overlap / total_time) if (total_time := max(overlap, course_time)) > 0 else 1) +
                   ((1 - alpha) * sum(section_ratings[section_id] for section_id in genome) / max(len(genome), 1)))
 
@@ -728,7 +739,7 @@ def genetic_algorithm(selected_courses, alpha):
     which means that the program will prioritize availability constraints over
     better professor ratings.
 
-    When the number of possibilities is ~250k, the speed of the genetic algorithm is
+    When the number of possibilities is ~125k, the speed of the genetic algorithm is
     comparable to that of the brute force algorithm.
 
     Steps
@@ -736,7 +747,7 @@ def genetic_algorithm(selected_courses, alpha):
     1\\. Initialize rules and calculate the number of combinations of courses.
 
     2\\. The genetic algorithm will branch to the brute force algorithm if there
-    used when there are less than 200000 possibilities.
+    used when there are less than 125000 possibilities.
 
     3\\. Initialize the population, generating 250 random course schedule proposals.
 
@@ -773,7 +784,7 @@ def genetic_algorithm(selected_courses, alpha):
     possibilities = np.prod(list(map(len, rules)))
 
     # Step 2
-    if possibilities < 250000:
+    if possibilities < 125000:
         return brute_force(selected_courses, alpha)
 
     # Step 3

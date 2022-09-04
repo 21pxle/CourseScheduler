@@ -62,9 +62,11 @@
         {% for result, score in query %}
             <h3>Result {{ 25 * page + loop.index }}</h3>
             <table class="bordered">
+                {% if user %}
                 <tr>
                     <th colspan="5">Match Rating: {{score}}%</th>
                 </tr>
+                {% endif %}
                 <tr>
                     <th>Course Abbreviation</th>
                     <th>Course Title</th>
