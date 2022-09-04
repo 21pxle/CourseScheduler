@@ -411,10 +411,10 @@ class AvailableTimes(db.Model):
     end = db.Column(db.Time, nullable=False)
 
 
-@dataclass
-class Interval:
-    start: int
-    end: int
+# @dataclass
+# class Interval:
+#     start: int
+#     end: int
 
 
 db.session.execute("CREATE DATABASE IF NOT EXISTS courses;")
